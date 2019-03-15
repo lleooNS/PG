@@ -1,0 +1,20 @@
+Mais sobre o método FrameWeb:
+
+https://nemo.inf.ufes.br/projects/frameweb/
+
+
+Instruções para meus alunos de PG:
+
+http://www.inf.ufes.br/~vitorsouza/pt/academia/students-pg/
+https://www.inf.ufes.br/~vitorsouza/academia/students-pg/
+
+Outros PGs que desenvolveram o SCAP:
+https://www.inf.ufes.br/~vitorsouza/academia/trabalhos-orientados/
+
+
+Quando for começar a escrever alguma coisa:
+
+https://www.inf.ufes.br/~vitorsouza/blog/controle-de-alteracoes-em-latex-usando-git-e-sourcetree/
+
+
+(Preciso da chave SSH descrita na parte "Cadastrando um usuário no repositório")
