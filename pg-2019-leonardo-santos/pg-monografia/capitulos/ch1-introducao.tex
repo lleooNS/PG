@@ -23,13 +23,83 @@ O \textit{framework} experimentado neste trabalho será o Grails. O \textit{fram
 
 %Além do template pronto para uso, este documento inclui exemplos de uso de \latex que podem ser úteis para aqueles que possuem pouca experiência com a ferramenta. Quando for começar a escrever seu PG, apague todo o conteúdo abaixo da palavra ``Texto''.
 
+\section{Justificativa e Motivação}
+\label{sec-intro-justificativa-motivacao}
+
+Desenvolver um sistema com o método FrameWeb, representa uma grande busca entre as diversas fontes de conhecimento envolvendo o desenvolvimento \textit{Web} e as inúmeras áreas dentro da computação. O conhecimento adquirido entre essas áreas, quando somado, estabelece um processo de aprendizagem que agrega um valor inestimável durante as fases do desenvolvimento do projeto.
+
+O projeto também contribui no aprimoramento e no desenvolvimento do método FrameWeb, uma vez que ao experimentá-lo utilizando um novo tipo de \textit{framework}, possibilita realizar a atualização da lista de suas aplicações. Ainda neste contexto, este projeto é responsável por auxiliar o departamento de informática, administrando o processo de afastamento de professores, que por sua vez, pode se tornar complexo sem um meio de automatização.
+
+Agilizar a execução deste processo, possibilita que tanto os secretários, quanto os professores do departamento de informática possam controlar as requisições e avaliações de afastamentos, diminuindo o tempo entre as etapas e anulando possíveis erros.               
+
 
 
 %%% Início de seção. %%%
-\section{Seções e subseções}
-\label{sec-intro-secoes}
+\section{Objetivos}
+\label{sec-intro-objetivos}
 
-O documento é organizado em capítulos (\texttt{\textbackslash chapter\{\}}), seções (\texttt{\textbackslash section\{\}}), subseções (\texttt{\textbackslash subsection\{\}}), sub-subseções (\texttt{\textbackslash subsubsection\{\}}) e assim por diante. Atenção, porém, a não criar estruturas muito profundas (sub-sub-sub-...) pois o documento não fica bem estruturado.
+A execução deste trabalho tem como objetivo geral a aplicação do método FrameWeb \cite{souza:masterthesis07}, realizando uma nova implementação do SCAP, utilizando o \textit{framework} Grails. Uma vez que os requisitos foram levantados por \citeonline{duarte-pg14} e reformulados por \citeonline{prado-pg15}, é possível verificar como o método se comporta, apresentando a devida evolução.
+
+O objetivo geral pode ser subdividido nos seguintes objetivos específicos:
+
+\begin{itemize}
+
+	\item Utilizar o \textit{framework} Grails para realizar uma nova implementação do SCAP, aproveitando os seus requisitos. Nesse objetivo será possível aplicar os conceitos de Engenharia de Requisitos, Projeto de Sistemas de Software e Engenharia de Software;
+	\item Aplicar o método FrameWeb para definir a documentação da arquitetura do projeto de sistema para o \textit{framework};
+    \item Realizar o estudo dos requisitos já levantados e efetuar uma comparação entre os \textit{frameworks} que já foram utilizados em versões anteriores.
+
+\end{itemize}
+
+
+%O documento é organizado em capítulos (\texttt{\textbackslash chapter\{\}}), seções (\texttt{\textbackslash section\{\}}), subseções (\texttt{\textbackslash subsection\{\}}), sub-subseções (\texttt{\textbackslash subsubsection\{\}}) e assim por diante. Atenção, porém, a não criar estruturas muito profundas (sub-sub-sub-...) pois o documento não fica bem estruturado.
+
+
+\section{Método de Trabalho}
+\label{sec-intro-metodo}
+
+De acordo com a seção anterior, para que os objetivos apresentados fossem alcançados, foi necessário realizar os seguintes passos:
+
+\begin{enumerate}
+
+    \item Revisão bibliográfica e pesquisa: leitura dos padrões de Projeto de Sistemas de Software \cite{falbo:pss18}, análise dos temas de Engenharia de Software \cite{falbo:es14}, Engenharia de Requisitos~\cite{falbo:er17} e entendimento do método FrameWeb~\cite{souza:masterthesis07} para realizar a aplicação do \textit{framework} Grails;
+    \item Estudo do sistema SCAP: organização das informações referentes aos requisitos levantados por \citeonline{duarte-pg14} e \citeonline{prado-pg15};
+    \item Definição da documentação do projeto: através do uso do método FrameWeb, elaboração da arquitetura do projeto para o \textit{framework} utilizado;
+    \item Desenvolvimento da implementação: geração de uma nova implementação do SCAP através do uso do \textit{framework} descrito no projeto; 
+    \item Redação da monografia: utilização do template abnTeX\footnote{\url{https://www.abntex.net.br/}} para a escrita da monografia em \latex\footnote{\url{https://www.latex-project.org/}} seguindo os requisitos das normas da ABNT (Associação Brasileira de Normas Técnicas);
+    \item Apresentação do Projeto: apresentação final da monografia e demonstração do sistema SCAP com o \textit{framework} proposto.
+
+\end{enumerate}    
+
+
+\section{Organização da Monografia}
+\label{sec-intro-organizacao}
+
+
+A organização desta monografia foi construída e dividida da seguinte maneira:
+
+\begin{itemize}
+
+\item \textbf{Capítulo \ref{sec-intro}: Introdução}
+
+Esse capítulo descreve a metodologia utilizada, os objetivos e as questões relacionadas ao contexto do projeto. 
+
+\item \textbf{Capítulo \ref{sec-referencial}: Referencial Teórico}
+
+Esse capítulo descreve o que foi estudado com relação aos principais temas abordados ao longo deste trabalho, ou seja: o método FrameWeb, Engenharia \textit{Web} e \textit{Frameworks}.
+
+\item \textbf{Capítulo \ref{sec-requisitos}: Especificação de Requisitos}
+
+Esse capítulo traz uma breve descrição das funcionalidades e objetivos do SCAP (Sistema de Controle de Afastamento de Professores), assim como a análise dos requisitos e especificação.
+
+\item \textbf{Capítulo \ref{sec-projeto}: Projeto Arquitetural e Implementação}
+
+Esse capítulo exibe o resultado da execução do método FrameWeb no projeto, trazendo os modelos e mostrando as tecnologias utilizadas na implementação. 
+
+\item \textbf{Capítulo \ref{sec-conclusoes}: Considerações Finais}
+
+Esse capítulo apresenta as expectativas relacionadas à trabalhos futuros e mostra as conclusões referentes a nova implementação do SCAP.  
+
+\end{itemize}
 
 
 %%% Início de seção. %%%
