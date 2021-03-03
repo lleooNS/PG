@@ -17,11 +17,52 @@ Com a evolução de forma acelerada da \textit{web}, surgiu a necessidade de mud
 
 Acompanhando as evoluções do mundo, diversos setores aonde não se imaginava uma maneira de como a \textit{web} poderia ser utilizada, foram obrigados a adotar essa tecnologia para poderem se manter no mercado, se equiparando com a concorrência existente. Se antes era preciso concentrar e controlar todos os sistemas de forma interna e não unificada, atualmente já é possível realizar a terceirização de serviços, como por exemplo: o controle de banco de dados, o gerenciamento de e-mails, o controle de inúmeros \textit{hardwares} de maneira remota, entre outros.
 
-Algumas aplicações passaram a desempenhar um papel muito importante nas organizações, como por exemplo, as aplicações de instituições financeiras, que não toleram nenhum tipo de erro em sua utilização. Assim, os problemas encontrados nas aplicações \textit{Desktop}, também passaram a ser visualizados nas aplicações para a \textit{web}. Alguns fatores como a falta de qualificação e experiência dos desenvolvedores, a não utilização de modelos de processo, a não utilização de métricas para estimativas, se somavam para encadear os problemas encontrados. Além disso, o planejamento incoerente, os métodos obsoletos e inadequados, o não cumprimento de custos e prazos, a falta de documentação e o não cumprimento dos requisitos, dificultavam muito o controle da qualidade das aplicações~\cite{peruch-pg07}.               
+Algumas aplicações passaram a desempenhar um papel muito importante nas organizações, como por exemplo, as aplicações de instituições financeiras, que não toleram nenhum tipo de erro em sua utilização. Assim, os problemas encontrados nas aplicações \textit{Desktop}, também passaram a ser visualizados nas aplicações para a \textit{web}. Alguns fatores como a falta de qualificação e a falta de experiência dos desenvolvedores, a não utilização de modelos de processo, a não utilização de métricas para estimativas, se somavam para encadear os problemas encontrados. Além disso, o planejamento incoerente, os métodos obsoletos e inadequados, o não cumprimento de custos e prazos, a falta de documentação e o não cumprimento dos requisitos, dificultavam muito o controle da qualidade das aplicações~\cite{peruch-pg07}.               
 
-Neste contexto de atualizações globais, à medida que a complexidade dos \textit{websites} foi aumentando, eles passaram a ser considerados verdadeiras aplicações na \textit{web}, sendo necessário utilizar os fundamentos da Engenharia \textit{Web}, que pode ser definida como a utilização de conceitos, princípios e métodos da Engenharia de Software, de modo que estabeleçam uma maneira de realizar adaptações referentes às características das aplicações \textit{web}~\cite{beder:ew12}.         	
+Neste contexto de atualizações globais, à medida que a complexidade dos \textit{websites} foi aumentando, eles passaram a ser considerados verdadeiras aplicações na \textit{web}, sendo necessário utilizar os fundamentos da Engenharia \textit{Web}, que pode ser definida como a utilização de conceitos, princípios e métodos da Engenharia de Software, de modo que estabeleçam uma maneira de realizar adaptações referentes às características das aplicações \textit{web}~\cite{beder:ew12}.
 
+Existem atributos técnicos de qualidade que são utilizados na Engenharia de Software. A usabilidade visa a facilidade de utilização da aplicação, independente do tipo de usuário. A funcionalidade faz referência ao comportamento do sistema, buscando operações e informações corretamente. A eficiência é voltada para o tempo de resposta, retornando as informações em uma velocidade satisfatória. A confiabilidade deve garantir a recuperação de erros e validação das informações e a manutenibilidade deve garantir a fácil atualização das operações existentes na aplicação. Todos esses atributos podem ser utilizados no desenvolvimento de aplicações \textit{web}. De acordo com~\citeonline{offutt:eis02}, os principais atributos técnicos de qualidade podem ser extendidos através de outros atributos: 
 
+\begin{itemize}
+	
+	\item \textbf{Segurança:} existem inúmeras informações confidenciais que são armazenadas e extraídas através das \textit{WebApps}, além de existir a integração com bancos de dados governamentais e corporativos. Por estes motivos, assim como outros, em inúmeras situações, a segurança da \textit{WebApp} deve ser tratada com prioridade. Para estabelecer o atributo de segurança, a \textit{WebApp} deve possuir a habilidade de se defender contra ataques maldosos e bloquear solicitações que não possuem acesso autorizado;
+	
+	\item \textbf{Disponibilidade:} uma \textit{WebApp} indisponível não tem serventia nenhuma para os usuários, mesmo que ela seja de extrema qualidade. A disponibilidade é definida pelo percentual de tempo que a aplicação fica disponível para uso. Os usuários sempre esperam que as \textit{WebApps} fiquem disponíveis a todo o momento, no entanto, a disponibilidade também está relacionada com os tipos de plataformas diferentes que as \textit{WebApps} são compatíveis;
+
+	\item \textbf{Escalabilidade:} os servidores e a \textit{WebApp} não podem ser projetados para um número fixo de usuários. A capacidade de volume e a capacidade de resposta devem ser levadas em consideração durante a construção, ou seja, variações significativas podem ocorrer a qualquer momento. Um número bem grande de usuários devem ser esperados no futuro;
+
+	\item \textbf{Tempo de inserção no mercado:} do ponto de vista comercial, é uma boa medida de qualidade. Geralmente, um número variável de usuários são atraídos pelas primeiras \textit{WebApps} que atendem um segmento específico de mercado. O usuário fica responsável por realizar a avaliação da qualidade da \textit{WebApp};
+
+\end{itemize}
+
+O desenvolvimento de uma \textit{WebApp} é uma atividade com características variadas, envolvendo questões organizacionais, técnicas, gerenciais, artísticas e sociais. Reunindo um conjunto de atividades aplicadas, o objetivo é gerar uma aplicação de qualidade que atenda as características esperadas de forma eficiente.
+
+Ao iniciar um projeto de uma \textit{WebApp}, a Engenharia \textit{Web} estabelece algumas fases para que uma abordagem iterativa seja seguida. Essas fases são aplicadas de acordo com que o projeto se desenvolve. Se repetindo quantas vezes forem as iterações do projeto, as fases de comunicação, planejamento, modelagem, construção e emprego, produzem um incremento de \textit{software} a cada iteração, disponibilizando uma parte das funcionalidade e dos recursos do \textit{software}, se tornando bem mais completo~\cite{pressman:es11}.
+
+\subsection{Comunicação}
+\label{sec-ref-comunicacao}
+
+De início temos a fase de comunicação, onde é necessário compreender os objetivos das partes interessadas, conhecendo as restrições e necessidades do \textit{software}, documentando o registro da análise e realizando a verificação, validação e gerenciamento dos requisitos. Além disso, os requisitos de qualidade, interface de usuário, ambiente de sistema e conteúdo também devem ser tratados, assim como requisitos não-funcionais.
+
+\subsection{Planejamento}
+\label{sec-ref-planejamento}
+
+Em sequência, é descrita a fase de planejamento, em que as tarefas técnicas a serem conduzidas devem ser descritas, assim como os recursos que serão utilizados, um cronograma de trabalho, os riscos prováveis e os resultados esperados dos produtos. Através dos requisitos especificados, os elementos da arquitetura são definidos através de uma transmissão entre a análise de contexto e o desenvolvimento do sistema.
+
+\subsection{Modelagem}
+\label{sec-ref-modelagem}
+
+Na fase de modelagem, os padrões e as normas são definidas para realizar a organização do desenvolvimento do sistema, acrescentando detalhes para que o problema e a solução proposta sejam compreendidos da melhor maneira possível. As transições entre as fases e os métodos de realização também são definidos, abordando todas as questões globais do projeto.   
+
+\subsection{Construção}
+\label{sec-ref-construcao}
+
+Posteriormente, na fase de construção, é preciso transformar toda a lógica, operações e o controle do sistema em código-fonte, utilizando uma linguagem de programação determinada. O conteúdo da aplicação, o aspecto visual e os elementos de navegação são definidos e testes são realizados para revelar possíveis erros na implementação do código. 
+
+\subsection{Emprego}
+\label{sec-ref-emprego}
+
+Por fim, na fase de emprego, a aplicação é entregue ao cliente, em partes que serão incrementadas ou completa, para que ele realize a avaliação do produto. A aplicação deve ser mantida sempre atualizada e permitir uma manutenibilidade fácil para garantir que esteja sempre disponível e seja funcional. Nesta fase ainda podem ocorrer mudanças estruturadas ou não estruturadas.              
 
 
 
