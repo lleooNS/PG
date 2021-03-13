@@ -5,7 +5,7 @@
 \chapter{Referencial Teórico}
 \label{sec-referencial}
 
-Descrever um pouco sobre o que vai ter no capítulo ...
+No decorrer deste capítulo serão apresentados alguns conceitos: uma descrição sobre a Engenharia \textit{Web}, alguns de seus atributos técnicos de qualidade e as fases seguidas por uma abordagem iterativa; o método FrameWeb, suas propostas, suas divisões através de camadas e a utilização de uma linguagem específica de modelagem. O capítulo também aborda uma visão sobre as categorias dos \textit{frameworks}, uma descrição sobre o \textit{framework} Grails utilizado no projeto e a linguagem Groovy que é utilizada por ele.      
 
 \section{Engenharia \textit{Web}}
 \label{sec-ref-engenharia-web}
@@ -130,7 +130,54 @@ Com o objetivo de representar de maneira direta os conceitos existentes nos \tex
 \section{Frameworks}
 \label{sec-ref-frameworks}
 
+Para realizar a implementação de um WIS, através da Engenharia \textit{Web}, o que mais se pode encontrar são ferramentas, propostas de metodologias e inúmeras linguagens que facilitam o processo realizado pelos desenvolvedores. Após a construção dos primeiros sistemas, verificou-se que os WISs possuíam uma infraestrutura arquitetônica bem parecida. Desta maneira, diversos \textit{frameworks} foram criados para generalizar essa infraestrutura e para facilitar a realização do desenvolvimento de novas aplicações.
 
+Assim, um \textit{framework} pode ser considerado um design reutilizável de uma parte ou de todo o sistema, sendo representado por um conjunto de classes abstratas e concretas que demonstram a forma como suas instâncias interagem com um grande potencial de especialização~\cite{mattsson-et-al:csef99}. Com a utilização das funcionalidades que os \textit{frameworks} oferecem, a implementação dos códigos fontes das aplicações se tornam bem mais simples, minimizando os custos e o tempo utilizado.
+
+Diversos \textit{frameworks} foram criados para a plataforma Java e após a construção de inúmeros WISs,~\citeonline{souza:masterthesis07} estabeleceu uma organização para os \textit{frameworks} em seis categorias diferentes:    
+
+\begin{itemize} 
+	
+	\item \textit{Frameworks} MVC (Controladores Frontais);
+	
+	\item \textit{Frameworks} Decoradores;
+	
+	\item \textit{Frameworks} de Mapeamento Objeto/Relacional;
+	
+	\item \textit{Frameworks} de Injeção de Dependência (Inversão de Controle);
+	
+	\item \textit{Frameworks} para Programação Orientada a Aspectos (AOP);
+	
+	\item \textit{Frameworks} para Autenticação e Autorização.
+   
+\end{itemize}
+
+O \textit{framework} Grails utilizado neste trabalho, pertence à categoria de \textit{frameworks} MVC (Controladores Frontais) e será descrito nas próximas subseções.
+
+\subsection{Controladores Frontais: Frameworks MVC}
+\label{sec-ref-framework-mvc}
+
+O padrão MVC, abreviatura de Modelo-Visão-Controlador (\textit{Model-View-Controller}), possibilita a divisão do projeto em camadas muito bem definidas. Correspondendo a objetos da camada de Lógica de Negócio, o \textbf{(modelo)} faz referência aos objetos que descrevem as informações sobre o negócio. A \textbf{(visão)} cuida da exibição e da entrada de informações na interface do usuário. O \textbf{(controlador)} trata das requisições, envia para a camada de Lógica de Negócio e após receber as respostas, realiza a solicitação para que as informações sejam atualizadas pela \textbf{(visão)}. A Figura \ref{fig-ref-mvc} demonstra como funciona esse padrão arquitetural.  
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.39]{figuras/fig-ref-mvc} 
+	\caption{Arquitetura MVC através de uma representação esquemática~\cite{pressman:es11}.}
+	\label{fig-ref-mvc}
+\end{figure}
+
+O \textbf{(modelo)} apenas tem conhecimento sobre a lógica e os dados que estão armazenados no sistema através de bancos de dados ou arquivos. Ele é considerado o núcleo da aplicação e é onde as operações de CRUD podem ser realizadas. A \textbf{(visão)} não possui lógica de negócio e fica responsável por controlar a entrada dos dados fornecidos pelo usuário, devolvendo a saída das informações assim que elas forem repassadas pelo \textbf{(controlador)}. O \textbf{(controlador)} funciona como um intermediário, organizando os eventos enviados pela interface do usuário e os direcionando para o \textbf{(modelo)}.
+
+O padrão MVC aborda dois tipos de separação. No primeiro tipo, existe uma separação entre a apresentação \textbf{(visão)} e a lógica de negócio \textbf{(modelo)}. No segundo tipo, o \textbf{(controlador)} é separado da \textbf{(visão)}, sendo este segundo tipo menos importante do que o primeiro. Como inúmeros sistemas possuem um único controlador por visão, o segundo tipo quase não é utilizado. Entretanto, o segundo tipo é mais comum em interfaces \textit{Web}, pois a parte de \textbf{(visão)} \textit{front end} é naturalmente separada do \textbf{(controlador)}~\cite{fowler:peaa02}.
+
+De acordo com ~\citeonline{souza:masterthesis07}, a arquitetura MVC necessita de algumas alterações para atender as necessidades dos aplicativos \textit{Web}. O \textbf{(modelo)}, situado no servidor \textit{Web}, não consegue enviar as notificações das alterações para a \textbf{(visão)}, já que se encontra no navegador do lado do cliente e a comunicação é sempre iniciada pelo cliente. Então, apesar de MVC ser um nome bem conceituado, o nome correto para esse padrão arquitetônico, quando aplicado à \textit{Web}, seria ``Controlador Frontal'' (\textit{Front Controller})~\cite{alur-et-al:bpds03}. O padrão Controlador Frontal pode ser visualizado através da Figura \ref{fig-ref-controlador-frontal}.   
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.35]{figuras/fig-ref-controlador-frontal} 
+	\caption{Funcionamento do padrão arquitetônico Controlador Frontal na \textit{Web}~\cite{souza:masterthesis07}.}
+	\label{fig-ref-controlador-frontal}
+\end{figure}
 
 \subsection{Framework Grails}
 \label{sec-ref-framework-grails}
