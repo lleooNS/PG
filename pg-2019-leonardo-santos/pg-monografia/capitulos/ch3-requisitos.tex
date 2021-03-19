@@ -2,7 +2,41 @@
 % TCC - Nome do Aluno
 % Capítulo 3 - Especificação de Requisitos
 % ==============================================================================
-\chapter{Especificação de Requisitos}
+\chapter{Especificação de Requisitos e o Sistema SCAP}
 \label{sec-requisitos}
 
-Texto.
+Considerados um fator determinante para o fracasso ou sucesso de um projeto de \textit{software}, os requisitos desempenham um papel central no processo de \textit{software}. De modo geral, é possível dizer que os requisitos de um sistema incluem restrições sob as quais ele deve operar, restrições que devem ser satisfeitas no seu processo de desenvolvimento, especificações dos serviços que o sistema deve prover e propriedades gerais do sistema~\cite{falbo:er17}.
+
+Os requisitos podem ser definidos como as descrições das restrições operacionais e dos serviços que devem ser providos pelo sistema~\cite{sommerville:es07}. Com relação ao tipo de informação documentada por um requisito, uma classificação é amplamente aceita e de acordo com~\citeonline{sommerville:es07}, os \textbf{requisitos funcionais} são declarações de serviços que o sistema deve prover, descrevendo o que o sistema deve fazer. Já os \textbf{requisitos não funcionais}, descrevem restrições sobre os serviços ou funções oferecidas pelo sistema. Neste contexto, ainda existem as regras de negócio, que definem requerimentos e restrições do negócio, sendo particulares para cada cliente.
+
+Uma tarefa bem útil é representar os requisitos em níveis diferentes de descrição, pois os desenvolvedores, os clientes que contratam o desenvolvimento do sistema e os usuários finais são muito interessados em requisitos, mas possuem expectativas distintas. Assim,~\citeonline{sommerville:es07} realiza a descrição de dois níveis de requisitos:
+
+\begin{itemize}
+
+	\item \textbf{Requisitos de Usuário ou de Cliente:} devem ser de fácil entendimento para clientes e usuários do sistema que não possuem conhecimento técnico. São diagramas intuitivos das restrições e dos serviços esperados do sistema, todos através da utilização de linguagem natural.
+	
+	\item \textbf{Requisitos de Sistema:} especificam em detalhes as restrições, serviços e funções do sistema, produzindo uma versão melhorada dos requisitos de clientes que os desenvolvedores utilizam para implementar, projetar e testar o sistema. 
+
+\end{itemize}
+
+O capítulo apresenta uma descrição de escopo referente ao SCAP (Sistema de Controle de Afastamento de Professores), assim como os modelos de casos de uso e diagramas de classes que foram levantados anteriormente por~\citeonline{duarte-pg14} e posteriormente analisados por~\citeonline{prado-pg15}. 
+
+\section{Descrição do Escopo}
+\label{sec-requisitos-descricao-escopo}
+
+O SCAP surgiu com o objetivo de auxiliar o Departamento de Informática (DI) da UFES no controle e no registro de solicitações de afastamento do seus professores, para que eles possam participar de eventos que acontecem no Brasil e no exterior. Essas solicitações de afastamento necessitam passar por uma série de avaliações para que sejam aprovadas. Elas são avaliadas pelos professores do DI e dependendo do caso, também devem ser avaliadas pela diretoria do Centro Tecnológico (CT) em conjunto com a Pró-reitoria de Pesquisa e Pós-Graduação (PRPPG). Somente após receber a aprovação de todas as instâncias, o afastamento é publicado no Diário Oficial da União e o(a) professor(a) recebe a autorização para participar do evento.     
+
+A Câmara Departamental (composta pelos representantes discentes e pelos funcionários do departamento) fica responsável por avaliar e aprovar as solicitações de afastamento para eventos no Brasil. O chefe do departamento (cargo ocupado por um(a) professor(a) do DI através de um mandato temporário) recebe a solicitação de afastamento pelo email e após dez dias, se nenhum membro da Câmara Departamental for contra ao pedido, o afastamento é aprovado. Assim, para eventos nacionais, o processo permanece dentro do DI.
+
+Para pedidos de afastamento referente a eventos internacionais, um(a) professor(a) (sem parentesco com o(a) solicitante) é escolhido para se tornar relator do pedido. Assim que o relator manda o parecer, o pedido passa por avaliação para aprovação como no caso descrito com eventos que são realizados no Brasil. Para que o pedido seja publicado no Diário Oficial da União, ele deve receber a aprovação do CT e da PRPPG. Entretanto, o SCAP não possui uma integração com os processos do CT e da PRPPG, fazendo com que o controle das tramitações permaneça dentro do DI, restringindo o escopo do sistema.
+
+Com o intuito de automatizar as tramitações das solicitações de afastamento, o SCAP auxilia os professores e secretários do DI, facilitando o processo desde a criação até a aprovação e armazenamento. Com o envio de e-mails automáticos para os envolvidos e com a utilização de formulários para a criação dos documentos necessários, o sistema pode ser considerado fundamental para esse processo.      
+
+\section{Modelo de Casos de Uso}
+\label{sec-requisitos-modelo-caso-uso}
+
+Modelos
+
+
+
+ 
