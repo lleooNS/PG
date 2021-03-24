@@ -19,7 +19,7 @@ Uma tarefa bem útil é representar os requisitos em níveis diferentes de descr
 
 \end{itemize}
 
-O capítulo apresenta uma descrição de escopo referente ao SCAP (Sistema de Controle de Afastamento de Professores), assim como os modelos de casos de uso e diagramas de classes que foram levantados anteriormente por~\citeonline{duarte-pg14} e posteriormente analisados por~\citeonline{prado-pg15}. 
+O capítulo apresenta uma descrição de escopo referente ao SCAP (Sistema de Controle de Afastamento de Professores), assim como o modelo de casos de uso e o diagrama de classes que foi levantado anteriormente por~\citeonline{duarte-pg14} e posteriormente analisado por~\citeonline{prado-pg15}. 
 
 \section{Descrição do Escopo}
 \label{sec-requisitos-descricao-escopo}
@@ -33,9 +33,9 @@ Para pedidos de afastamento referente a eventos internacionais, um professor (se
 Com o intuito de automatizar as tramitações das solicitações de afastamento, o SCAP auxilia os professores e secretários do DI, facilitando o processo desde a criação até a aprovação e armazenamento. Com o envio de e-mails automáticos para os envolvidos e com a utilização de formulários para a criação dos documentos necessários, o sistema pode ser considerado fundamental para esse processo.      
 
 \section{Modelo de Casos de Uso}
-\label{sec-requisitos-modelo-caso-uso}
+\label{sec-requisitos-modelo-casos-uso}
 
-As funcionalidades que um sistema deve prover devem ser capturadas e descritas pelos modelos de caso de uso. Na maioria das vezes, um sistema atende a vários atores e por este motivo, analisar a funcionalidade que ele provem como uma única unidade, pode ser uma tarefa complicada. O conceito de caso de uso tem a utilidade de dividir essa funcionalidade em partes mais agradáveis e menores~\cite{olive:cmis07}. Assim, logo após o levantamento de requisitos e da definição do escopo, os atores identificados no sistema SCAP foram apresentados através da Tabela \ref{tabela-atores-scap}.  
+As funcionalidades que um sistema deve prover devem ser capturadas e descritas pelos modelos de casos de uso. Na maioria das vezes, um sistema atende a vários atores e por este motivo, analisar a funcionalidade que ele provem como uma única unidade, pode ser uma tarefa complicada. O conceito de caso de uso tem a utilidade de dividir essa funcionalidade em partes mais agradáveis e menores~\cite{olive:cmis07}. Assim, logo após o levantamento de requisitos e da definição do escopo, os atores identificados no sistema SCAP foram apresentados através da Tabela \ref{tabela-atores-scap}.  
 
 \begin{table}[h]
 	\centering	
@@ -49,7 +49,7 @@ As funcionalidades que um sistema deve prover devem ser capturadas e descritas p
 		
 		\textbf{Professor} & Professores efetivos do DI/UFES. \\\hline
 		
-		\textbf{Chefe do Departamento} & Professores do DI/UFES que estão realizando a função administrativa de chefe e sub-chefe do departamento. \\\hline
+		\textbf{Chefe do Departamento} & Professores do DI/UFES que estão realizando a função administrativa de chefe e subchefe do departamento. \\\hline
 		
 		\textbf{Secretário} & Secretário do DI/UFES. \\\hline
 		
@@ -62,22 +62,22 @@ O SCAP fornece algumas funcionalidades para os \textbf{professores}. Eles podem 
 
 Se um \textbf{professor} se tornar \textbf{chefe do departamento} através de um mandato, ele deve realizar o encaminhamento de solicitações aos relatores que farão o deferimento de pareceres com relação aos afastamentos internacionais.
 
-O diagrama de casos de uso do SCAP pode ser visualizado através da Figura \ref{fig-requisitos-caso-uso}. Uma pequena descrição dos casos de uso será apresentada nos próximos parágrafos e uma versão mais completa dessa descrição pode ser encontrada em~\cite{duarte-pg14,prado-pg15}.
+O diagrama de casos de uso do SCAP pode ser visualizado através da Figura \ref{fig-requisitos-casos-uso}. Uma pequena descrição dos casos de uso será apresentada nos próximos parágrafos e uma versão mais completa dessa descrição pode ser encontrada em~\cite{duarte-pg14,prado-pg15}.
      
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/fig-requisitos-caso-uso} 
+	\includegraphics[scale=0.5]{figuras/fig-requisitos-casos-uso} 
 	\caption{Diagrama de Casos de Uso do SCAP.}
-	\label{fig-requisitos-caso-uso}
+	\label{fig-requisitos-casos-uso}
 \end{figure}
 
 No sistema, um professor realiza o cadastro de um pedido de afastamento por meio do caso de uso \textbf{Solicitar Afastamento}, fornecendo todos os dados que são necessários para realizar a tramitação. Um professor pode cancelar uma solicitação de afastamento utilizando o caso de uso \textbf{Cancelar Afastamento}, realizando a alteração do status para cancelado.
 
 Após escolher um relator para um pedido de afastamento internacional, o Chefe do Departamento pode executar o caso de uso \textbf{Encaminhar Afastamento}. Quando um professor que se tornou relator através da indicação do Chefe do Departamento realizar o cadastro do seu parecer sobre o afastamento, o caso de uso \textbf{Deferir Parecer} pode ser utilizado.
 
-Um professor, um chefe de departamento ou um secretário podem utilizar o caso de uso \textbf{Consultar Afastamento} assim que necessitar obter informações sobre uma solicitação de afastamento. Se um professor for contra a um pedido de afastamento, o caso de uso \textbf{Manifestar-se Contra Afastamento} pode ser utilizado e após o motivo ser cadastrado, uma reunião é agendada para decidir a aprovação ou reprovação da solicitação.
+Um professor, um chefe de departamento ou um secretário podem utilizar o caso de uso \textbf{Consultar Afastamento} assim que necessitarem obter informações sobre uma solicitação de afastamento. Se um professor for contra a um pedido de afastamento, o caso de uso \textbf{Manifestar-se Contra Afastamento} pode ser utilizado e após o motivo ser cadastrado, uma reunião é agendada para decidir a aprovação ou reprovação da solicitação.
 
-Um secretário realiza o cadastramento de novos professores ou secretários através do caso de uso \textbf{Cadastrar Usuário}, onde é informado todas os dados necessárias. Um secretário também utiliza o caso de uso \textbf{Cadastrar Chefe do Departamento} para especificar o período do mandato do novo chefe do departamento.
+Um secretário realiza o cadastramento de novos professores ou secretários através do caso de uso \textbf{Cadastrar Usuário}, onde é informado todos os dados necessários. Um secretário também utiliza o caso de uso \textbf{Cadastrar Chefe do Departamento} para especificar o período do mandato do novo chefe do departamento.
   
 Quando existe uma solicitação de afastamento internacional, um secretário realiza o cadastro do parecer do Centro Tecnológico e da Pró-Reitoria de Pesquisa e Pós-Graduação por meio dos casos de uso \textbf{Registrar Parecer CT} e \textbf{Registrar Parecer PRPPG}.
 
@@ -86,11 +86,47 @@ O caso de uso \textbf{Arquivar Afastamento} é executado após a tramitação de
 \section{Análise do SCAP}
 \label{sec-requisitos-analise-scap}
 
-Fase
+Com a responsabilidade de relacionar as necessidades e as exigências do cliente, a análise de requisitos estabelece atividades para que seus objetivos sejam atingidos através de soluções que deverão ser implementadas e entregues em um produto final de \textit{software}. Desta maneira, a análise de requisitos engloba a compreensão dos estudos das necessidades e das solicitações do usuário para que as soluções sejam desenvolvidas. Resumidamente, a análise de requisitos envolve o entendimento do problema, sua avaliação, uma estratégia para a solução, sua modelagem, a especificação dos requisitos e a devida validação~\cite{amui:pds15}.
 
+Diferentes objetos desempenham um mesmo papel no mundo real, compartilhando um mesmo comportamento e uma mesma estrutura. Não existe a necessidade de realizar a modelagem de cada objeto individualmente, pois é mais vantajoso reunir em apenas um lugar, um modelo que descreve o comportamento e a estrutura desses objetos. Esse modelo passa a se tornar uma classe. Uma classe descreve um conjunto de objetos com os mesmos atributos, associações, operações e a mesma semântica. Portanto, a modelagem orientada a objetos é constituída pela definição de classes~\cite{falbo:er17}.    
 
+\subsection{Modelo de Classes}
+\label{sec-requisitos-modelo-classes}
 
+O diagrama de classes do SCAP pode ser visualizado através da Figura \ref{fig-requisitos-diagrama-classes}. As instâncias das classes são especificadas de acordo com o comportamento exercido pelos objetos que seguem as especificações das classes. 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.7]{figuras/fig-requisitos-diagrama-classes} 
+	\caption{Diagrama de Classes do SCAP.}
+	\label{fig-requisitos-diagrama-classes}
+\end{figure}
 
-   
+Herdando todos os atributos da classe \textbf{Pessoa}, os professores são representados pela classe \textbf{Professor} e os secretários são representados pela classe \textbf{Secretário}. Os professores podem possuir relações de parentesco, seja ela matrimonial ou sanguínea. Essas relações são representadas pela classe \textbf{Parentesco}. Um professor pode ocupar o cargo de chefe ou subchefe do departamento, sendo que o tempo de permanência no cargo é representado pela classe \textbf{Mandato}.
+
+Os pedidos de afastamento solicitados por professores são representados pela classe \textbf{Afastamento}. Nela se encontram todas as informações necessárias para realizar as tramitações. Esta classe pode conter documentos que são visualizados através da classe \textbf{Documento}. Quando um pedido de afastamento se trata de um evento internacional, a classe \textbf{Relator} deve ser utilizada informando o professor que foi indicado para isso.
+
+A classe \textbf{Parecer} é utilizada quando um professor efetua a emissão de um parecer com relação a um afastamento. Um professor pode se tornar relator e criar pareceres de vários afastamentos diferentes. 
+
+\subsection{Restrições de Integridade}
+\label{sec-requisitos-restricoes-integridade}
+
+As restrições de integridade são limitações às possíveis soluções no desenvolvimento referente ao produto a ser entregue e não ao projeto em si. Elas não representam os requisitos de forma direta, mas induzem à definição de requisitos específicos. As restrições afetam a construção, o desenho da solução, a validação, os testes e a implantação do \textit{software}, não podendo sofrer alterações. Por este motivo, elas devem ser muito bem validadas~\cite{vazquez-et-al:erson16}.
+
+As primeiras restrições de integridade do sistema foram identificadas por \citeonline{duarte-pg14} e após concluir a implementação de uma nova versão, \citeonline{prado-pg15} sentiu a necessidade de adicionar novas restrições. As restrições de integridade do SCAP que foram atualizadas estão descritas a seguir:
  
+\begin{itemize}
+
+	\item Um professor não pode ser relator de um afastamento solicitado por um parente;
+	
+	\item O secretário do departamento não pode abrir uma solicitação de afastamento;
+	
+	\item Não pode haver mais de dois professores (chefe e subchefe de departamento) exercendo um mandato ao mesmo tempo;
+	
+	\item A data de início de um mandato de professor não pode ser posterior a data de fim do mesmo mandato;
+	
+	\item A data de início de um afastamento não pode ser posterior a data de fim do mesmo afastamento;
+	
+	\item Um professor não pode ser solicitado para dar um parecer sobre sua própria solicitação de afastamento. 
+   
+\end{itemize} 
