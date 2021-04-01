@@ -5,7 +5,88 @@
 \chapter{Projeto Arquitetural e Implementação}
 \label{sec-projeto}
 
-Texto
+
+\section{Tecnologias Presentes no Projeto}
+\label{sec-projeto-tecnologias-presentes}
+
+Utilizando o \textit{framework} Grails, esta versão do SCAP foi implementada na linguagem Apache Groovy. Os dados armazenados no banco de dados necessitavam estar de acordo com as especificações dos modelos utilizados no projeto. Para que essa tarefa fosse monitorada, foi utilizado a ferramenta phpMyAdmin, que facilitou a visualização e conferência dos dados.
+
+Descrevendo mais sobre a linguagem Groovy, ela também pode ser utilizada como uma linguagem de \textit{script}, não sendo necessário realizar a geração de arquivos executáveis e nem a sua compilação. O Groovy simplifica a implementação, adicionando dinamicamente às suas classes os métodos de acesso (\textit{gets} e \textit{sets}), economizando esforço e tempo. Com o objetivo de simplificar a sintaxe da linguagem Java, o Groovy representa comportamentos dinâmicos, como escritas e leituras, consulta a banco de dados e geração de objetos em tempo de execução ao invés de compilação~\cite{konig-et-al:gia07}.
+
+Nas subseções abaixo estão descritas mais algumas tecnologias que foram utilizadas no projeto através do \textit{framework} Grails.
+
+\subsection{Scaffolding}
+\label{sec-projeto-scaffolding}
+
+A abordagem Scaffolding é um termo que foi adotado pelo \textit{framework} Grails para realizar a geração dos controladores e das visões relacionadas às classes de domínio. Através dele, é possível gerar todo o código responsável por fornecer um CRUD essencial para o sistema, permitindo incluir, ler, atualizar e deletar os registros armazenados no banco de dados. Ainda é possível criar códigos de autenticação/autorização, testes unitários, entre outras operações~\cite{beder:ew12}.
+
+De acordo com~\citeonline{beder:ew12}, o Scaffolding pode ser estático ou dinâmico. O Scaffolding estático produz, através da utilização de \textit{templates}, o código relacionado as visões e aos controladores que podem receber personalizações das equipes de desenvolvedores \textit{web}. Já o Scaffolding dinâmico pode servir a vários propósitos, como na criação de interfaces simples, sem o intuito de realizar muitas personalizações nas visões que são geradas em tempo de execução. Para a implementação desta versão do SCAP, foi utilizado o Scaffolding dinâmico.   
+
+\subsection{Gradle}
+\label{sec-projeto-gradle}
+
+O Gradle é uma ferramenta de construção de \textit{build} bastante poderosa que pode ser utilizada na gerência de projetos, gestão de dependências, padronização de diretórios, construção, ciclo de vida, entre outras funcionalidades. O Gradle ainda possui uma quantidade imensa de \textit{plug-ins} que podem ser muito aproveitosos nos projetos~\cite{weissmann:fgapdw15}.
+
+Com a adoção do Gradle pelo \textit{framework} Grails, foi necessário realizar algumas mudanças na localização de alguns diretórios e de alguns arquivos com relação às versões anteriores. Isso facilitou o entendimento da estrutura e a configuração dos arquivos existentes.
+
+\subsection{GORM}
+\label{sec-projeto-gorm}
+
+O GORM (\textit{Grails Object Relational Mapping}) é uma poderosa API (\textit{Application Programming Interface}) que facilita muito a execução de tarefas relacionadas à persistência de objetos. Nas versões iniciais do \textit{framework} Grails, o GORM era basicamente uma fina camada de código Groovy sobre o Hibernate, que fornecia uma interface de programação onde era possível aproveitar as características dinâmicas da linguagem~\cite{weissmann:fgapdw15}.
+
+De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser visto como uma API de persistência Groovy real, onde é possível desenvolver sistemas em Grails que usem qualquer tipo de SGBD (Sistema Gerenciador de Banco de Dados), relacional ou não. Para isto, é necessário que seja escrito uma implementação do GORM para o SGDB que será utilizado. Uma observação interessante é que o GORM também pode ser utilizado com sucesso independentemente do Grails.  
+
+\section{Modelos FrameWeb}
+\label{sec-projeto-modelos-frameweb}
+
+\subsection{Modelo de Navegação}
+\label{sec-projeto-modelo-navegacao}
+
+\subsection{Modelo de Entidades}
+\label{sec-projeto-modelo-entidades}
+
+O Modelo de Entidades sugere que o modelo de classes do domínio agregue tanto comportamento quanto dados. Por meio da Análise de Requisitos, as classes de domínio que foram identificadas ficam responsáveis por cuidar da lógica de aplicação e da lógica de domínio. De acordo com~\citeonline{fowler:peaa02}, o padrão Modelo de Entidades captura a essência da orientação a objetos.
+
+Englobando as funcionalidades que dão suporte aos processos de negócio, concentrando as regras de negócio, conceitos do domínio, cálculos e processamentos, o Modelo de Entidades é representado por um diagrama de classes da UML, que apresenta o mapeamento dos objetos de domínio do problema para a persistência em banco de dados relacional. Na atividade de implementação, este modelo é utilizado para realizar a efetuação das classes da camada de Domínio~\cite{souza:masterthesis07}.
+
+Utilizando o diagrama de classes que já foi apresentado através da Figura \ref{fig-requisitos-diagrama-classes}, o Modelo de Entidades recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura \ref{fig-projeto-entidades}, que representa o Modelo de Entidades do SCAP.
+
+No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura \ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados.   
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/fig-projeto-entidades} 
+	\caption{Modelo de Entidades do SCAP.}
+	\label{fig-projeto-entidades}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/fig-projeto-enum} 
+	\caption{Tipos Enumerados do SCAP.}
+	\label{fig-projeto-enum}
+\end{figure}
+
+\subsection{Modelo de Aplicação}
+\label{sec-projeto-modelo-aplicacao}
+
+\subsection{Modelo de Persistência}
+\label{sec-projeto-modelo-persistencia}
+
+Seguindo a utilização do padrão de projeto DAO~\cite{alur-et-al:bpds03}, o Modelo de Persistência é um diagrama de classes da UML que representa as classes DAO existentes e que são responsáveis pela persistência das instância das classes de domínio~\cite{souza:masterthesis07}. As classes DAO que fazem parte do pacote Persistência, são construídas com o auxílio deste diagrama que pode ser visualizado por meio da Figura \ref{fig-projeto-persistencia}.
+
+Para cada classe de domínio que precisa de lógica de acesso a dados, foi criada uma interface e uma classe concreta DAO que realiza a implementação dessa interface. A partir da criação da interface DAO base, todas as outras interfaces herdaram as definições e as implementações concretas que foram definidas.
+
+De acordo com o método FrameWeb~\cite{souza:masterthesis07,souza-celebratingfalbo20}, é aconselhável seguir um padrão de nomes para as classes DAO, sendo que as intefaces devem seguir o padrão \textbf{<nome da classe de domínio>DAO} e as classes concretas devem seguir o padrão \textbf{<nome da interface><tecnologia de persistência>}. O \textit{framework} Grails que foi utilizado neste projeto utiliza o \textbf{GORM} como tecnologia de persistência. A tecnologia \textbf{GORM} já foi descrita anteriormente na subseção \ref{sec-projeto-gorm}.
+
+Para evitar a poluição visual no Modelo de Persistência, não existe uma representação explícita da relação de herança entre o DAO base e os DAOs específicos. Através da definição de padrões, o foco é estabelecer regras para que a modelagem se torne mais simples e mais rápida.    
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/fig-projeto-persistencia} 
+	\caption{Modelo de Persistência do SCAP.}
+	\label{fig-projeto-persistencia}
+\end{figure}
 
 \section{Exibição do Sistema}
 \label{sec-projeto-exibicao-sistema}
