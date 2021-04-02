@@ -5,6 +5,51 @@
 \chapter{Projeto Arquitetural e Implementação}
 \label{sec-projeto}
 
+As atividades de projeto e implementação de softwares são invariavelmente intercaladas. O projeto de software é uma atividade criativa aonde são identificados os componentes de software e seus relacionamentos de acordo com os requisitos do cliente. A implementação estabelece o processo de concretização do projeto como um programa. Sempre existe um processo de projeto, pois um projeto trata de como resolver um problema. O projeto e a implementação estão intimamente ligados e, ao elaborar um projeto, é necessário levar em consideração os problemas de implementação que serão enfrentados~\cite{sommerville:es11}.
+
+De acordo com o que já foi mencionado anteriormente, o método FrameWeb oferece suporte a quatro categorias de \textit{frameworks}: Controlador Frontal, Injeção de Dependências, Mapeamento Objeto/Relacional e Segurança. Por este motivo, a aplicação do método na fase de projeto vem sendo testada através da implementação do sistema SCAP, utilizando \textit{frameworks} que fazem parte destas categorias.
+
+Como o objetivo principal deste trabalho era verificar os resultados da aplicação e testar a eficácia do método FrameWeb, a ferramenta SCAP não necessitou ser entregue englobando todas as suas funcionalidades. Assim, algumas restrições de integridade não foram implementadas, a ferramenta não possui a funcionalidade de enviar emails, gerar atas de reuniões e nem anexar documentos.
+
+Neste capítulo, através da Seção \ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção \ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção \ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb e a Seção \ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails.           
+
+\section{Arquitetura do Sistema}
+\label{sec-projeto-arquitetura-sistema}
+
+De uma maneira simplificada, a arquitetura do sistema é a organização ou a estrutura de componentes de programa, a maneira como esses componentes realizam iterações e a estrutura de dados que são utilizadas por estes componentes. De uma forma mais abrangente, entretanto, os componentes podem ser generalizados para representar as suas iterações e os principais elementos de um sistema~\cite{pressman:es11}.
+
+A Figura \ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia dos diretórios e arquivos que são criados através do \textit{framework} Grails.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.7]{figuras/fig-projeto-estrutura-grails} 
+	\caption{Estrutura criada pelo \textit{framework} Grails.}
+	\label{fig-projeto-estrutura-grails}
+\end{figure}
+
+Por meio dos relatos apresentados por~\citeonline{beder:ew12}, a hierarquia de diretórios e arquivos do \textit{framework} Grails segue o paradigma \textbf{\textit{Convention Over Configuration} (CoC)}. O uso do \textbf{CoC} tem como objetivo diminuir a quantidade de decisões tomadas pelos desenvolvedores, adotando como ``padrão'' algo que é utilizado de forma comum, uma convenção. Seguindo as convenções, os desenvolvedores já sabem a priori onde se encontram todos os elementos que compõem a aplicação em desenvolvimento.
+
+Na lista abaixo são apresentados de maneira geral os diretórios criados através do \textit{framework} Grails. As abas dos diretórios estão representadas em negrito:
+
+\begin{itemize}
+
+	\item \textbf{``grails-app/assets'':} local onde se encontram os arquivos de imagens, javascript e \textit{stylesheets};
+
+	\item \textbf{``grails-app/conf'':} local onde se encontram as configurações da aplicação, tais como a configuração do banco, as configurações de inicialização, entre outros;
+
+	\item \textbf{``grail-app/controllers'':} local onde ficam localizados todos os controladores criados;
+	
+	\item \textbf{``grails-app/domain'':} local onde se encontram os modelos ou classes de Domínio;
+	
+	\item \textbf{``grails-app/i18n'':} local onde são armazenados os pacotes de mensagens relacionados à internacionalização;
+	
+	\item \textbf{``grails-app/services'':} local onde se encontram as classes utilizadas na camada de serviços (\textit{Web Services});
+	
+	\item \textbf{``grails-app/views'':} local onde estão localizadas as visões, ou seja, os arquivos GSP (\textit{Groovy Server Pages}), que são responsáveis por renderizar as páginas utilizadas pela aplicação. 
+	
+\end{itemize}
+
+Dentro dos diretórios, ainda é possível incluir arquivos referentes a bibliotecas terceirizadas que podem ser utilizadas no projeto, assim como códigos fontes escritos na linguagem Java ou na linguagem Groovy. Estes códigos podem ser reaproveitados pela aplicação.
 
 \section{Tecnologias Presentes no Projeto}
 \label{sec-projeto-tecnologias-presentes}
@@ -39,25 +84,27 @@ De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser 
 \section{Modelos FrameWeb}
 \label{sec-projeto-modelos-frameweb}
 
+Nas subseções a seguir são descritos e apresentados os modelos referentes à aplicação do método FrameWeb que foi realizada durante a fase de projeto arquitetural do SCAP.
+
 \subsection{Modelo de Navegação}
 \label{sec-projeto-modelo-navegacao}
 
-\subsection{Modelo de Entidades}
-\label{sec-projeto-modelo-entidades}
+\subsection{Modelo de Domínio}
+\label{sec-projeto-modelo-dominio}
 
-O Modelo de Entidades sugere que o modelo de classes do domínio agregue tanto comportamento quanto dados. Por meio da Análise de Requisitos, as classes de domínio que foram identificadas ficam responsáveis por cuidar da lógica de aplicação e da lógica de domínio. De acordo com~\citeonline{fowler:peaa02}, o padrão Modelo de Entidades captura a essência da orientação a objetos.
+O Modelo de Domínio sugere que o modelo de classes do domínio agregue tanto comportamento quanto dados. Por meio da Análise de Requisitos, as classes de domínio que foram identificadas ficam responsáveis por cuidar da lógica de aplicação e da lógica de domínio. De acordo com~\citeonline{fowler:peaa02}, o padrão Modelo de Domínio captura a essência da orientação a objetos.
 
-Englobando as funcionalidades que dão suporte aos processos de negócio, concentrando as regras de negócio, conceitos do domínio, cálculos e processamentos, o Modelo de Entidades é representado por um diagrama de classes da UML, que apresenta o mapeamento dos objetos de domínio do problema para a persistência em banco de dados relacional. Na atividade de implementação, este modelo é utilizado para realizar a efetuação das classes da camada de Domínio~\cite{souza:masterthesis07}.
+Englobando as funcionalidades que dão suporte aos processos de negócio, concentrando as regras de negócio, conceitos do domínio, cálculos e processamentos, o Modelo de Domínio é representado por um diagrama de classes da UML, que apresenta o mapeamento dos objetos de domínio do problema para a persistência em banco de dados relacional. Na atividade de implementação, este modelo é utilizado para realizar a efetuação das classes da camada de Domínio~\cite{souza:masterthesis07}.
 
-Utilizando o diagrama de classes que já foi apresentado através da Figura \ref{fig-requisitos-diagrama-classes}, o Modelo de Entidades recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura \ref{fig-projeto-entidades}, que representa o Modelo de Entidades do SCAP.
+Utilizando o diagrama de classes que já foi apresentado através da Figura \ref{fig-requisitos-diagrama-classes}, o Modelo de Domínio recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura \ref{fig-projeto-dominio}, que representa o Modelo de Domínio do SCAP.
 
 No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura \ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados.   
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.45]{figuras/fig-projeto-entidades} 
-	\caption{Modelo de Entidades do SCAP.}
-	\label{fig-projeto-entidades}
+	\includegraphics[scale=0.45]{figuras/fig-projeto-dominio} 
+	\caption{Modelo de Domínio do SCAP.}
+	\label{fig-projeto-dominio}
 \end{figure}
 
 \begin{figure}[h]
