@@ -5,23 +5,23 @@
 \chapter{Referencial Teórico}
 \label{sec-referencial}
 
-No decorrer deste capítulo serão apresentados alguns conceitos: uma descrição sobre a Engenharia \textit{Web}, alguns de seus atributos técnicos de qualidade e as fases seguidas por uma abordagem iterativa; o método FrameWeb, suas propostas, suas divisões através de camadas e a utilização de uma linguagem específica de modelagem. O capítulo também aborda uma visão sobre as categorias dos \textit{frameworks}, uma descrição sobre o \textit{framework} Grails utilizado no projeto e a linguagem Groovy que é utilizada por ele.      
+No decorrer deste capítulo serão apresentados conceitos usados como base para o desenvolvimento deste trabalho: uma descrição sobre a Engenharia \textit{Web}, alguns de seus atributos técnicos de qualidade e as fases seguidas por uma abordagem iterativa; o método FrameWeb, suas propostas, suas divisões através de camadas e a utilização de uma linguagem específica de modelagem. O capítulo também aborda uma visão sobre as categorias dos \textit{frameworks}, uma descrição sobre o \textit{framework} Grails utilizado no projeto e a linguagem Groovy que é utilizada por ele.      
 
 \section{Engenharia \textit{Web}}
 \label{sec-ref-engenharia-web}
 
 
-A \textit{Web} é uma ferramenta que dispensa apresentações, pois ela já está familiarizada entre a maioria das pessoas, se encontra presente no dia a dia e em quase todas as áreas, podendo ser acessada através de muitos hardwares diferentes. Inicialmente, o conteúdo de \textit{websites} era apenas textual, estático e não existia a presença de animações, sons, imagens ou conteúdo gerado de maneira dinâmica para cada tipo de usuário. A preocupação dos desenvolvedores permanecia em torno da simplicidade de apenas visualizar as informações sem complexidades.
+A \textit{Web} é uma ferramenta que dispensa apresentações, pois ela já está familiarizada entre a maioria das pessoas, se encontra presente no dia a dia e em quase todas as áreas, podendo ser acessada através de muitos \textit{hardwares} diferentes. Inicialmente, o conteúdo de \textit{websites} era apenas textual, estático e não existia a presença de animações, sons, imagens ou conteúdo gerado de maneira dinâmica para cada tipo de usuário. A preocupação dos desenvolvedores permanecia em torno da simplicidade de apenas visualizar as informações sem complexidades.
 
 Com a evolução de forma acelerada da \textit{web}, surgiu a necessidade de mudanças significativas na maneira como os \textit{websites} eram criados. Os \textit{websites} passaram a englobar diversos conteúdos e funções complexas, adicionando centenas ou milhares de objetos em seu contexto. Sendo assim, quando toda a adição desses conteúdos começou a gerar um impacto direto no sucesso dos negócios, os projetos \textit{web} deixaram de ser tratados de maneira superficial~\cite{pressman:es11}.
 
-Acompanhando as evoluções do mundo, diversos setores aonde não se imaginava uma maneira de como a \textit{web} poderia ser utilizada, foram obrigados a adotar essa tecnologia para poderem se manter no mercado, se equiparando com a concorrência existente. Se antes era preciso concentrar e controlar todos os sistemas de forma interna e não unificada, atualmente já é possível realizar a terceirização de serviços, como por exemplo: o controle de banco de dados, o gerenciamento de e-mails, o controle de inúmeros \textit{hardwares} de maneira remota, entre outros.
+Acompanhando as evoluções do mundo, diversos setores onde não se imaginava uma maneira de como a \textit{web} poderia ser utilizada, foram obrigados a adotar essa tecnologia para poderem se manter no mercado, se equiparando com a concorrência existente. Se antes era preciso concentrar e controlar todos os sistemas de forma interna e não unificada, atualmente já é possível realizar a terceirização de serviços, como por exemplo: o controle de banco de dados, o gerenciamento de e-mails, o controle de inúmeros \textit{hardwares} de maneira remota, entre outros.
 
 Algumas aplicações passaram a desempenhar um papel muito importante nas organizações, como por exemplo: as aplicações de instituições financeiras, que não toleram nenhum tipo de erro em sua utilização. Assim, os problemas encontrados nas aplicações \textit{Desktop}, também passaram a ser visualizados nas aplicações para a \textit{web}. Alguns fatores como a falta de qualificação e a falta de experiência dos desenvolvedores, a não utilização de modelos de processo, a não utilização de métricas para estimativas, se somavam para encadear os problemas encontrados. Além disso, o planejamento incoerente, os métodos obsoletos e inadequados, o não cumprimento de custos e prazos, a falta de documentação e o não cumprimento dos requisitos, dificultavam muito o controle da qualidade das aplicações~\cite{peruch-pg07}.               
 
 Neste contexto de atualizações globais, à medida que a complexidade dos \textit{websites} foi aumentando, eles passaram a ser considerados verdadeiras aplicações na \textit{web}, sendo necessário utilizar os fundamentos da Engenharia \textit{Web}, que pode ser definida como a utilização de conceitos, princípios e métodos da Engenharia de Software, de modo que estabeleçam uma maneira de realizar adaptações referentes às características das aplicações \textit{web}~\cite{beder:ew12}.
 
-Existem atributos técnicos de qualidade que são utilizados na Engenharia de Software. A usabilidade visa a facilidade de utilização da aplicação, independente do tipo de usuário. A funcionalidade faz referência ao comportamento do sistema, buscando operações e informações corretamente. A eficiência é voltada para o tempo de resposta, retornando as informações em uma velocidade satisfatória. A confiabilidade deve garantir a recuperação de erros e validação das informações e a manutenibilidade deve garantir a fácil atualização das operações existentes na aplicação. Todos esses atributos podem ser utilizados no desenvolvimento de aplicações \textit{web}. De acordo com~\citeonline{offutt:eis02}, os principais atributos técnicos de qualidade podem ser extendidos através de outros atributos: 
+Existem atributos técnicos de qualidade que são utilizados na Engenharia de Software. A usabilidade visa a facilidade de utilização da aplicação, independente do tipo de usuário. A funcionalidade faz referência ao comportamento do sistema, buscando operações e informações corretamente. A eficiência é voltada para o tempo de resposta, retornando as informações em uma velocidade satisfatória. A confiabilidade deve garantir a recuperação de erros e validação das informações e a manutenibilidade deve garantir a fácil atualização das operações existentes na aplicação. Todos esses atributos podem ser utilizados no desenvolvimento de aplicações \textit{web}. De acordo com \citeonline{offutt:eis02}, os principais atributos técnicos de qualidade podem ser extendidos através de outros atributos: 
 
 \begin{itemize}
 	
@@ -67,7 +67,7 @@ Por fim, na fase de \textbf{emprego}, a aplicação é entregue ao cliente, em p
 \section{O Método FrameWeb}
 \label{sec-ref-frameweb}
 
-Utilizando \textit{frameworks} como base, o FrameWeb (\textit{Framework-based Design Method for Web Engineering})~\citeonline{souza:masterthesis07} é um método de projeto voltado para o desenvolvimento de sistemas de informação \textit{Web} (\textit{Web Information Systems} - WISs). Ao se desenvolver aplicações distribuídas, especialmente as baseadas na plataforma \textit{Web}, o uso de \textit{frameworks} se padronizou, passando a existir inúmeras propostas para a Engenharia \textit{Web}. Mesmo com muitos \textit{frameworks} existentes, assim como métodos e metodologias, não havia nada que englobasse diretamente as características dos \textit{frameworks} utilizados no desenvolvimento de WISs. O método FrameWeb surgiu com o intuito de propor modelos de projetos que chegam perto da implementação do sistema, definindo uma arquitetura básica para o WIS e assumindo que determinados tipos de \textit{frameworks} serão utilizados no decorrer da construção da aplicação.
+Utilizando \textit{frameworks} como base, o FrameWeb (\textit{Framework-based Design Method for Web Engineering})~\cite{souza:masterthesis07,souza-celebratingfalbo20} é um método de projeto voltado para o desenvolvimento de sistemas de informação \textit{Web} (\textit{Web Information Systems} - WISs). Ao se desenvolver aplicações distribuídas, especialmente as baseadas na plataforma \textit{Web}, o uso de \textit{frameworks} se padronizou, passando a existir inúmeras propostas para a Engenharia \textit{Web}. Mesmo com muitos \textit{frameworks} existentes, assim como métodos e metodologias, não havia nada que englobasse diretamente as características dos \textit{frameworks} utilizados no desenvolvimento de WISs. O método FrameWeb surgiu com o intuito de propor modelos de projetos que chegam perto da implementação do sistema, definindo uma arquitetura básica para o WIS e assumindo que determinados tipos de \textit{frameworks} serão utilizados no decorrer da construção da aplicação.
 
 Voltado para a fase de projeto arquitetural, o FrameWeb visa deixar as organizações e os desenvolvedores com a opção de adotar as técnicas mais adequadas para as demais etapas do processo. Nesta fase, as principais propostas do método são estabelecidas:
   
@@ -75,16 +75,16 @@ Voltado para a fase de projeto arquitetural, o FrameWeb visa deixar as organiza�
 	
 	\item Divisão do sistema em camadas, através de uma arquitetura padrão, de modo a realizar uma integração com os \textit{frameworks} utilizados;
 	
-	\item Construção de modelos de projeto que reúnem conceitos utilizados pelos \textit{frameworks}, através de um perfil UML que traga os diagramas para mais perto da implementação;
+	\item Construção de modelos de projeto que reúnem conceitos utilizados pelos \textit{frameworks}, através de um perfil UML que traga os diagramas para mais perto da implementação.
 
 \end{itemize}
 
-O FrameWeb propõe o uso de uma arquitetura lógica do sistema, que seja estabelecida pelo padrão arquitetônico Service Layer (Camada de Serviço)~\citeonline{fowler:peaa02}, representado na Figura \ref{fig-ref-service-layer}. O sistema é dividido em três camadas grandes que são subdivididas internamente por pacotes:                            
+O FrameWeb propõe o uso de uma arquitetura lógica do sistema, que seja estabelecida pelo padrão arquitetônico \textit{Service Layer} (Camada de Serviço)~\cite{fowler:peaa02}, representado na Figura~\ref{fig-ref-service-layer}. O sistema é dividido em três camadas grandes que são subdivididas internamente por pacotes:                            
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=.5]{figuras/fig-ref-service-layer} 
-	\caption{Arquitetura padrão para WIS baseada no padrão arquitetônico Service Layer~\cite{fowler:peaa02}.}
+	\includegraphics[scale=.6]{figuras/fig-ref-service-layer} 
+	\caption{Arquitetura padrão para WIS baseada no padrão arquitetônico \textit{Service Layer}~\cite{fowler:peaa02}.}
 	\label{fig-ref-service-layer}
 \end{figure}
 
@@ -100,7 +100,7 @@ O FrameWeb propõe o uso de uma arquitetura lógica do sistema, que seja estabel
 	
 		\subitem -- Pacote de \textbf{Domínio:} reúne o relacionamento direto entre os diagramas de classes produzidos na fase de análise e os conceitos do domínio do problema. 
 		
-		\subitem -- Pacote de \textbf{Aplicação:} está ligado ao modelo de casos de uso e é projetado de maneira distinta com relação a interface com o usuário.
+		\subitem -- Pacote de \textbf{Aplicação:} está ligado ao modelo de casos de uso e é projetado de maneira independente da interface com o usuário.
 	
 	\item \textbf{Lógica de Acesso a Dados:} estabelece o acesso a dados, gerenciando requisições e cuidando da sincronização de elementos de dados.
 	
@@ -111,19 +111,21 @@ O FrameWeb propõe o uso de uma arquitetura lógica do sistema, que seja estabel
 \subsection{Linguagem de Modelagem}
 \label{sec-ref-linguagem-modelagem}
 
-Com o objetivo de representar de maneira direta os conceitos existentes nos \textit{frameworks} que podem ser integrados, o uso de uma linguagem específica de modelagem se tornou necessária, pois os artefatos que serão codificados pelos desenvolvedores após a fase de projeto também devem ser modelados. O FrameWeb apresenta uma linguagem de modelagem que estende o meta-modelo UML, representando os componentes relacionados aos \textit{frameworks} e os componentes mais utilizados no desenvolvimento \textit{Web}. Um perfil UML é utilizado para a construção de quatro tipos de diagramas: 
+Com o objetivo de representar de maneira direta os conceitos existentes nos \textit{frameworks} que podem ser integrados, o uso de uma linguagem específica de modelagem se tornou necessária~\cite{martins-souza:webmedia15}, pois os artefatos que serão codificados pelos desenvolvedores após a fase de projeto também devem ser modelados. O FrameWeb apresenta uma linguagem de modelagem que estende o meta-modelo UML, representando os componentes relacionados aos \textit{frameworks} e os componentes mais utilizados no desenvolvimento \textit{Web}. Um perfil UML é utilizado para a construção de quatro tipos de diagramas: 
 
 \begin{itemize}  
 
-	\item \textbf{Modelo de Domínio:} partindo do modelo de classes desenvolvido na fase de análise, os objetos de domínio do problema que serão persistidos no banco de dados são representados por um diagrama de classes da UML.
+	\item \textbf{Modelo de Entidades:} partindo do modelo de classes desenvolvido na fase de análise, os objetos de domínio do problema que serão persistidos no banco de dados são representados por um diagrama de classes da UML. Além disso, os mapeamentos que guiam a persistência dos objetos destas classes são adicionados;
 	
-	\item \textbf{Modelo de Persistência:} um diagrama de classes da UML representa a implementação das classes DAO existentes no sistema e que serão persistidas, exibindo todas as implementações das interfaces, assim como os seus respectivos métodos.   
+	\item \textbf{Modelo de Persistência:} um diagrama de classes da UML representa a implementação das classes DAO existentes no sistema e que serão persistidas, exibindo todas as implementações das interfaces, assim como os seus respectivos métodos;
 	
-	\item \textbf{Modelo de Navegação:} demonstra as páginas \textit{Web} do sistema, seus atributos e suas iterações, exibindo o funcionamento dos inúmeros componentes que formam a camada de Lógica de Apresentação.
+	\item \textbf{Modelo de Navegação:} demonstra as páginas \textit{Web} do sistema, seus atributos e suas iterações, exibindo o funcionamento dos inúmeros componentes que formam a camada de Lógica de Apresentação;
 	
 	\item \textbf{Modelo de Aplicação:} exibe através de um diagrama de classes da UML, as classes de serviço, que implementam os casos de uso e as suas dependências.
 
 \end{itemize}
+
+A definição da linguagem de modelagem permite, ainda, a criação de ferramentas de apoio ao método, como um editor gráfico~\cite{campos-souza:webmedia17} e um gerador de código~\cite{almeida-et-al:webmedia17}.
 
 
 
@@ -134,7 +136,7 @@ Para realizar a implementação de um WIS, através da Engenharia \textit{Web}, 
 
 Assim, um \textit{framework} pode ser considerado um design reutilizável de uma parte ou de todo o sistema, sendo representado por um conjunto de classes abstratas e concretas que demonstram a forma como suas instâncias interagem com um grande potencial de especialização~\cite{mattsson-et-al:csef99}. Com a utilização das funcionalidades que os \textit{frameworks} oferecem, a implementação dos códigos fontes das aplicações se tornam bem mais simples, minimizando os custos e o tempo utilizado.
 
-Diversos \textit{frameworks} foram criados para a plataforma Java e após a construção de inúmeros WISs,~\citeonline{souza:masterthesis07} estabeleceu uma organização para os \textit{frameworks} em seis categorias diferentes:    
+Diversos \textit{frameworks} foram criados para a plataforma Java e após a construção de inúmeros WISs, \citeonline{souza:masterthesis07} estabeleceu uma organização para os \textit{frameworks} em seis categorias diferentes:    
 
 \begin{itemize} 
 	
@@ -157,11 +159,11 @@ O \textit{framework} Grails utilizado neste trabalho, pertence à categoria de \
 \subsection{Controladores Frontais: Frameworks MVC}
 \label{sec-ref-framework-mvc}
 
-O padrão MVC, abreviatura de Modelo-Visão-Controlador (\textit{Model-View-Controller}), possibilita a divisão do projeto em camadas muito bem definidas. Correspondendo a objetos da camada de Lógica de Negócio, o \textbf{(modelo)} faz referência aos objetos que descrevem as informações sobre o negócio. A \textbf{(visão)} cuida da exibição e da entrada de informações na interface do usuário. O \textbf{(controlador)} trata das requisições, envia para a camada de Lógica de Negócio e após receber as respostas, realiza a solicitação para que as informações sejam atualizadas pela \textbf{(visão)}. A Figura \ref{fig-ref-mvc} demonstra como funciona esse padrão arquitetural.  
+O padrão MVC, abreviatura de Modelo-Visão-Controlador (\textit{Model-View-Controller}), possibilita a divisão do projeto em camadas muito bem definidas. Correspondendo a objetos da camada de Lógica de Negócio, o \textbf{(modelo)} faz referência aos objetos que descrevem as informações sobre o negócio. A \textbf{(visão)} cuida da exibição e da entrada de informações na interface do usuário. O \textbf{(controlador)} trata das requisições, envia para a camada de Lógica de Negócio e após receber as respostas, realiza a solicitação para que as informações sejam atualizadas pela \textbf{(visão)}. A Figura~\ref{fig-ref-mvc} demonstra como funciona esse padrão arquitetural.  
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=.39]{figuras/fig-ref-mvc} 
+	\includegraphics[scale=.45]{figuras/fig-ref-mvc} 
 	\caption{Arquitetura MVC através de uma representação esquemática~\cite{pressman:es11}.}
 	\label{fig-ref-mvc}
 \end{figure}
@@ -170,11 +172,11 @@ O \textbf{(modelo)} apenas tem conhecimento sobre a lógica e os dados que estã
 
 O padrão MVC aborda dois tipos de separação. No primeiro tipo, existe uma separação entre a apresentação \textbf{(visão)} e a lógica de negócio \textbf{(modelo)}. No segundo tipo, o \textbf{(controlador)} é separado da \textbf{(visão)}, sendo este segundo tipo menos importante do que o primeiro. Como inúmeros sistemas possuem um único controlador por visão, o segundo tipo quase não é utilizado. Entretanto, o segundo tipo é mais comum em interfaces \textit{Web}, pois a parte de \textbf{(visão)} \textit{front end} é naturalmente separada do \textbf{(controlador)}~\cite{fowler:peaa02}.
 
-De acordo com ~\citeonline{souza:masterthesis07}, a arquitetura MVC necessita de algumas alterações para atender as necessidades dos aplicativos \textit{Web}. O \textbf{(modelo)}, situado no servidor \textit{Web}, não consegue enviar as notificações das alterações para a \textbf{(visão)}, já que se encontra no navegador do lado do cliente e a comunicação é sempre iniciada pelo cliente. Então, apesar de MVC ser um nome bem conceituado, o nome correto para esse padrão arquitetônico, quando aplicado à \textit{Web}, seria ``Controlador Frontal'' (\textit{Front Controller})~\cite{alur-et-al:bpds03}. O padrão Controlador Frontal pode ser visualizado através da Figura \ref{fig-ref-controlador-frontal}.   
+De acordo com \citeonline{souza:masterthesis07}, a arquitetura MVC necessita de algumas alterações para atender as necessidades dos aplicativos \textit{Web}. O \textbf{(modelo)}, situado no servidor \textit{Web}, não consegue enviar as notificações das alterações para a \textbf{(visão)}, já que se encontra no navegador do lado do cliente e a comunicação é sempre iniciada pelo cliente. Então, apesar de MVC ser um nome bem conceituado, o nome correto para esse padrão arquitetônico, quando aplicado à \textit{Web}, seria ``Controlador Frontal'' (\textit{Front Controller})~\cite{alur-et-al:bpds03}. O padrão Controlador Frontal pode ser visualizado na Figura~\ref{fig-ref-controlador-frontal}.   
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=.35]{figuras/fig-ref-controlador-frontal} 
+	\includegraphics[scale=.45]{figuras/fig-ref-controlador-frontal} 
 	\caption{Funcionamento do padrão arquitetônico Controlador Frontal na \textit{Web}~\cite{souza:masterthesis07}.}
 	\label{fig-ref-controlador-frontal}
 \end{figure}
@@ -195,9 +197,9 @@ Após o projeto utilizando o \textit{framework} Grails ser finalizado, é possí
 
 Alterar o comportamento do código enquanto ele é executado pode ser bem simples utilizando Groovy. Por se tratar de uma linguagem dinâmica e orientada a objetos, ela tem como vantagem a execução de tarefas em tempo de execução, se destacando com relação as outras linguagens que só executam através de padrões de projetos ou no momento da compilação. A linguagem Groovy é altamente compatível com os códigos desenvolvidos através da linguagem Java, que podem ser acessados transparentemente pelos códigos implementados em Groovy e vice-versa.
 
-Com relação as variáveis que são utilizadas na linguagem, a definição dos tipos pode acontecer de modo estático ou dinamicamente, ou seja, a definição dos tipos das variáveis utilizadas no Groovy não é obrigatório. Os métodos são bem mais simples de serem definidos, pois não é preciso explicitar o tipo de retorno e nem utilizar a instrução return para retornar um valor.
+Com relação às variáveis que são utilizadas na linguagem, a definição dos tipos pode acontecer de modo estático ou dinamicamente, ou seja, a definição dos tipos das variáveis utilizadas no Groovy não é obrigatório. Os métodos são bem mais simples de serem definidos, pois não é preciso explicitar o tipo de retorno e nem utilizar a instrução return para retornar um valor.
 
-No decorrer do Capítulo \ref{sec-projeto} serão abordados mais alguns detalhes referentes a linguagem Groovy, que serão exemplificados de acordo como a demonstração da implementação do projeto.         
+No decorrer do Capítulo~\ref{sec-projeto} serão abordados mais alguns detalhes referentes a linguagem Groovy, que serão exemplificados de acordo como a demonstração da implementação do projeto.         
 
 
 
