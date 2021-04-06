@@ -11,7 +11,7 @@ De acordo com o que já foi mencionado anteriormente, o método FrameWeb oferece
 
 Como o objetivo principal deste trabalho era verificar os resultados da aplicação e testar a eficácia do método FrameWeb, a ferramenta SCAP não necessitou ser entregue englobando todas as suas funcionalidades. Assim, algumas restrições de integridade não foram implementadas, a ferramenta não possui a funcionalidade de enviar emails, gerar atas de reuniões e nem anexar documentos.
 
-Neste capítulo, através da Seção \ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção \ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção \ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb e a Seção \ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails.           
+Neste capítulo, através da Seção \ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção \ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção \ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb, a Seção \ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails e a Seção \ref{sec-projeto-diferenciacoes-versoes-anteriores}, exibe uma tabela contendo algumas diferenciações entre as versões anteriores do sistema SCAP.           
 
 \section{Arquitetura do Sistema}
 \label{sec-projeto-arquitetura-sistema}
@@ -84,12 +84,34 @@ De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser 
 \section{Modelos FrameWeb}
 \label{sec-projeto-modelos-frameweb}
 
-Nas subseções a seguir são descritos e apresentados os modelos referentes à aplicação do método FrameWeb que foi realizada durante a fase de projeto arquitetural do SCAP.
+A sintaxe da linguagem de modelagem do método FrameWeb é definida formalmente através de meta-modelos, o que possibilitou a criação da ferramenta CASE (\textit{Computer-Aided Software Engineering}) denominada FrameWeb \textit{Editor}~\cite{campos-souza:webmedia17}. Esta ferramenta estabelece um ambiente gráfico para a criação de modelos FrameWeb, apresentando suas funcionalidades e aspectos relevantes de sua implementação.  
+
+Nas subseções a seguir são descritos e apresentados os modelos referentes à aplicação do método FrameWeb que foi realizada durante a fase de projeto arquitetural do SCAP. A ferramenta FrameWeb \textit{Editor} foi utilizada para realizar a criação dos quatro tipos básicos de modelos FrameWeb, pois ela oferece um ferramental bem conhecido em softwares de modelagem contendo características e propriedades próprias da linguagem.  
 
 \subsection{Modelo de Navegação}
 \label{sec-projeto-modelo-navegacao}
 
-Representando os diferentes componentes que formam a camada de Lógica de Apresentação, o Modelo de Navegação é um diagrama de classe da UML que retrata formulários HTML, páginas \textit{Web} e classes de ação do \textit{framework Front Controller}~\cite{souza:masterthesis07}. 
+O Modelo de Navegação estabelece a maneira como cada categoria de usuário irá navegar de um elemento da \textit{WebApp} para outro. A mecânica de navegação é definida como parte do projeto, sendo necessário observar a definição e se concentrar nos requisitos gerais de navegação~\cite{pressman:es11}. 
+
+Representando os diferentes componentes que formam a camada de Lógica de Apresentação, o Modelo de Navegação é um diagrama de classe da UML que retrata formulários HTML, páginas \textit{Web} e classes de ação do \textit{framework Front Controller}~\cite{souza:masterthesis07}.
+
+Um Modelo de Navegação foi gerado para cada caso de uso neste projeto, no entanto, alguns casos de uso não foram apresentados, pois possuem o mesmo modelo de navegação apresentado na Figura \ref{fig-projeto-navegacao1}. Os casos de uso que foram omitidos foram: Cadastrar Chefe do Departamento, Solicitar Afastamento, Manifestar-se Contra Afastamento, Encaminhar Afastamento e Registrar Parecer Relator.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{figuras/fig-projeto-navegacao1} 
+	\caption{Modelo de Navegação do Caso de Uso: Cadastrar Usuário (Professor).}
+	\label{fig-projeto-navegacao1}
+\end{figure}
+
+De mesmo modo, outros casos de uso também não foram apresentados por seguirem o mesmo modelo de navegação representado pela Figura \ref{fig-projeto-navegacao2}. Assim, ficaram omitidos os casos de uso: Registrar Parecer CT, Registrar Parecer PRPPG e Cancelar Afastamento.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{figuras/fig-projeto-navegacao2} 
+	\caption{Modelo de Navegação do Caso de Uso: Arquivar Afastamento.}
+	\label{fig-projeto-navegacao2}
+\end{figure} 
 
 \subsection{Modelo de Domínio}
 \label{sec-projeto-modelo-dominio}
@@ -118,6 +140,19 @@ No modelo é possível observar o tipo referente a cada atributo, se ele pode se
 
 \subsection{Modelo de Aplicação}
 \label{sec-projeto-modelo-aplicacao}
+
+Representando as classes de serviço que ficam responsáveis pela implementação dos casos de uso e as suas dependências, o Modelo de Aplicação é definido através de um diagrama de classes da UML. Esse diagrama é utilizado para auxiliar os desenvolvedores na implementação das classes do pacote Aplicação e na configuração das dependências entre os pacotes Controle, Aplicação e Persistência. Assim, é possível definir quais DAOs são necessários para que as classes de serviço alcancem seus objetivos e quais classes de ação dependem de quais classes de serviço~\cite{souza:masterthesis07}.
+
+De acordo com~\citeonline{souza:masterthesis07}, se existirem classes de ação que dependem de uma classe de serviço exibida, elas também devem estar presentes no modelo, realizando a representação através da indicação da dependência por meio de uma associação direcionada à interface da classe de serviço e de espaços de nomes que pertencem a outro pacote. Portanto, quando a classe de serviço depende de algum DAO, a interface deste deve aparecer no diagrama e estar associada à classe de serviço em questão.
+
+Neste projeto foram gerados um modelo de aplicação para cada Data Access Object (DAO) existente. Portanto, por seguirem o mesmo padrão, foram representados apenas dois modelos de aplicação que podem ser visualizados na Figura \ref{fig-projeto-aplicacao}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.6]{figuras/fig-projeto-aplicacao} 
+	\caption{Modelo de Aplicação do SCAP.}
+	\label{fig-projeto-aplicacao}
+\end{figure}    
 
 \subsection{Modelo de Persistência}
 \label{sec-projeto-modelo-persistencia}
@@ -260,3 +295,32 @@ Após as tramitações de um afastamento serem realizada, o usuário secretário
 	\label{fig-projeto-editar-afastamento}
 \end{figure}
 
+\section{Diferenciações entre as Versões Anteriores do Sistema SCAP}
+\label{sec-projeto-diferenciacoes-versoes-anteriores}
+
+Realizando uma observação na tabela \ref{tabela-diferenciacoes-versoes-anteriores-scap}, é possível visualizar algumas diferenças entre as versões anteriores do sistema SCAP. O foco da tabela ficou em torno das linguagens utilizadas durante as implementações e o mapeamento objeto/relacional utilizado para realizar a persistência dos dados.
+
+\begin{table}[h]
+	\centering	
+	\vspace{0.5cm}
+	\footnotesize
+	\caption{Diferenciações entre as Versões Anteriores do SCAP.}	
+	\label{tabela-diferenciacoes-versoes-anteriores-scap}
+	\begin{tabular}{|p{2.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2.5cm}|}  \hline 
+ 		
+ 		\rowcolor[rgb]{0.8,0.8,0.8} & \textbf{SCAP}~\cite{duarte-pg14} & \textbf{SCAP}~\cite{prado-pg15} & \textbf{SCAP}~\cite{guterres-pg19} & \textbf{SCAP Atual} \\\hline 
+		
+		\textbf{Linguagem Utilizada} & Java & Java & Scala & Groovy \\\hline
+		
+		\textbf{Mapeamento Objeto/Relacional} & Hibernate + SQL & Hibernate + JPA & Slick & GORM \\\hline
+		
+	\end{tabular}
+\end{table}
+
+Em sua versão,~\citeonline{duarte-pg14} implementou o sistema SCAP utilizando a linguagem Java. Para a persistência dos dados, foi utilizado o Hibernate, que é um \textit{framework} de mapeamento objeto/relacional escrito na linguagem Java. O uso do padrão JPA (\textit{Java Persistence API}) era proposto pela especificação Java EE7, mas devido a uma série de motivos, foi utilizado o Hibernate  junto com o SQL (\textit{Standard Query Language}) durante a implementação.
+
+Com o objetivo de reformular a versão do SCAP implementada por~\citeonline{duarte-pg14},~\citeonline{prado-pg15} também implementou o sistema utilizando a linguagem Java. Como diferencial, nesta versão foi utilizado o Hibernate e o padrão JPA com a linguagem JPQL (\textit{Java Persistence Query Language}), onde as consultas no banco são escritas de forma mais próximas do padrão orientado ao objeto.
+
+Em 2019,~\cite{guterres-pg19} implementou uma versão do SCAP utilizando a linguagem Scala. Para realizar o mapeamento entre as tabelas no banco de dados e os objetos, foi utilizado a ferramenta Slick. Esta ferramenta é uma moderna biblioteca de consulta e acesso a banco de dados para a linguagem Scala, que permite realizar a escrita de consultas ao banco em Scala ao invés de SQL.
+
+Por fim, como já foi mencionado anteriormente, para a versão do SCAP descrita neste trabalho foi utilizada a linguagem Groovy (descrita na subseção \ref{sec-ref-linguagem-groovy} e na seção \ref{sec-projeto-tecnologias-presentes}) na implementação e para a persistência dos dados foi utilizado o GORM (descrito na subseção \ref{sec-projeto-gorm}).       
