@@ -5,11 +5,38 @@
 \chapter{Referencial Teórico}
 \label{sec-referencial}
 
-No decorrer deste capítulo serão apresentados conceitos usados como base para o desenvolvimento deste trabalho: uma descrição sobre a Engenharia \textit{Web}, alguns de seus atributos técnicos de qualidade e as fases seguidas por uma abordagem iterativa; o método FrameWeb, suas propostas, suas divisões através de camadas e a utilização de uma linguagem específica de modelagem. O capítulo também aborda uma visão sobre as categorias dos \textit{frameworks}, uma descrição sobre o \textit{framework} Grails utilizado no projeto e a linguagem Groovy que é utilizada por ele.      
+No decorrer deste capítulo serão apresentados conceitos usados como base para o desenvolvimento deste trabalho: um breve resumo sobre Engenharia de Requisitos (Seção~\ref{sec-ref-engenharia-requisitos}), uma descrição sobre a Engenharia \textit{Web}, alguns de seus atributos técnicos de qualidade e as fases seguidas por uma abordagem iterativa (Seção~\ref{sec-ref-engenharia-web}); o método FrameWeb, suas propostas, suas divisões através de camadas e a utilização de uma linguagem específica de modelagem (Seção~\ref{sec-ref-frameweb}). O capítulo também aborda uma visão sobre as categorias dos \textit{frameworks}, uma descrição sobre o \textit{framework} Grails utilizado no projeto e a linguagem Groovy que é utilizada por ele (Seção~\ref{sec-ref-frameworks}).
+
+
+\section{Engenharia de Requisitos}
+\label{sec-ref-engenharia-requisitos}
+
+Considerados um fator determinante para o fracasso ou sucesso de um projeto de \textit{software}, os requisitos desempenham um papel central no processo de \textit{software}. De modo geral, é possível dizer que os requisitos de um sistema incluem restrições sob as quais ele deve operar, restrições que devem ser satisfeitas no seu processo de desenvolvimento, especificações dos serviços que o sistema deve prover e propriedades gerais do sistema~\cite{falbo:er17}.
+
+Os requisitos podem ser definidos como as descrições das restrições operacionais e dos serviços que devem ser providos pelo sistema~\cite{sommerville:es07}. Com relação ao tipo de informação documentada por um requisito, uma classificação é amplamente aceita e de acordo com~\citeonline{sommerville:es07}, os \textbf{requisitos funcionais} são declarações de serviços que o sistema deve prover, descrevendo o que o sistema deve fazer. Já os \textbf{requisitos não funcionais}, descrevem restrições sobre os serviços ou funções oferecidas pelo sistema. Neste contexto, ainda existem as regras de negócio, que definem requerimentos e restrições do negócio, sendo particulares para cada cliente.
+
+Uma tarefa bem útil é representar os requisitos em níveis diferentes de descrição, pois os desenvolvedores, os clientes que contratam o desenvolvimento do sistema e os usuários finais são muito interessados em requisitos, mas possuem expectativas distintas. Assim,~\citeonline{sommerville:es07} realiza a descrição de dois níveis de requisitos:
+
+\begin{itemize}
+	\item \textbf{Requisitos de Usuário ou de Cliente:} devem ser de fácil entendimento para clientes e usuários do sistema que não possuem conhecimento técnico. São diagramas intuitivos das restrições e dos serviços esperados do sistema, todos através da utilização de linguagem natural.
+	
+	\item \textbf{Requisitos de Sistema:} especificam em detalhes as restrições, serviços e funções do sistema, produzindo uma versão melhorada dos requisitos de clientes que os desenvolvedores utilizam para implementar, projetar e testar o sistema. 
+\end{itemize}
+
+Em seguida, as funcionalidades que um sistema deve prover podem ser capturadas e descritas pelos modelos de casos de uso. Na maioria das vezes, um sistema atende a vários atores e por este motivo, analisar a funcionalidade que ele provê como uma única unidade pode ser uma tarefa complicada. O conceito de caso de uso tem a utilidade de dividir essa funcionalidade em partes mais agradáveis e menores~\cite{olive:cmis07}.
+
+Então, com a responsabilidade de relacionar as necessidades e as exigências do cliente, a fase de análise de requisitos se segue e estabelece atividades para que seus objetivos sejam atingidos através de soluções que deverão ser implementadas e entregues em um produto final de \textit{software}. Desta maneira, a análise de requisitos engloba a compreensão dos estudos das necessidades e das solicitações do usuário para que as soluções sejam desenvolvidas. Resumidamente, a análise de requisitos envolve o entendimento do problema, sua avaliação, uma estratégia para a solução, sua modelagem, a especificação dos requisitos e a devida validação~\cite{amui:pds15}.
+
+Diferentes objetos desempenham um mesmo papel no mundo real, compartilhando um mesmo comportamento e uma mesma estrutura. Não existe a necessidade de realizar a modelagem de cada objeto individualmente, pois é mais vantajoso reunir em apenas um lugar, um modelo que descreve o comportamento e a estrutura desses objetos. Esse modelo passa a se tornar uma classe. Uma classe descreve um conjunto de objetos com os mesmos atributos, associações, operações e a mesma semântica. Portanto, a modelagem orientada a objetos é constituída pela definição de classes~\cite{falbo:er17}.
+
+Além de organizar as classes em um diagrama, esta fase também identifica restrições de integridade, que são limitações às possíveis soluções no desenvolvimento referente ao produto a ser entregue e não ao projeto em si. Elas não representam os requisitos de forma direta, mas induzem à definição de requisitos específicos. As restrições afetam a construção, o desenho da solução, a validação, os testes e a implantação do \textit{software}, não podendo sofrer alterações. Por este motivo, elas devem ser muito bem validadas~\cite{vazquez-et-al:erson16}.
+
+Após especificados os requisitos, se seguem atividades de projeto e implementação de \textit{softwares}, que são invariavelmente intercaladas. O projeto de \textit{software} é uma atividade criativa aonde são identificados os componentes de \textit{software} e seus relacionamentos de acordo com os requisitos do cliente. A implementação estabelece o processo de concretização do projeto como um programa. Sempre existe um processo de projeto, pois um projeto trata de como resolver um problema. O projeto e a implementação estão intimamente ligados e, ao elaborar um projeto, é necessário levar em consideração os problemas de implementação que serão enfrentados~\cite{sommerville:es11}.
+
+
 
 \section{Engenharia \textit{Web}}
 \label{sec-ref-engenharia-web}
-
 
 A \textit{Web} é uma ferramenta que dispensa apresentações, pois ela já está familiarizada entre a maioria das pessoas, se encontra presente no dia a dia e em quase todas as áreas, podendo ser acessada através de muitos \textit{hardwares} diferentes. Inicialmente, o conteúdo de \textit{websites} era apenas textual, estático e não existia a presença de animações, sons, imagens ou conteúdo gerado de maneira dinâmica para cada tipo de usuário. A preocupação dos desenvolvedores permanecia em torno da simplicidade de apenas visualizar as informações sem complexidades.
 
@@ -108,24 +135,26 @@ O FrameWeb propõe o uso de uma arquitetura lógica do sistema, que seja estabel
 
 \end{itemize}
 
-\subsection{Linguagem de Modelagem}
-\label{sec-ref-linguagem-modelagem}
+%\subsection{Linguagem de Modelagem}
+%\label{sec-ref-linguagem-modelagem}
 
 Com o objetivo de representar de maneira direta os conceitos existentes nos \textit{frameworks} que podem ser integrados, o uso de uma linguagem específica de modelagem se tornou necessária~\cite{martins-souza:webmedia15}, pois os artefatos que serão codificados pelos desenvolvedores após a fase de projeto também devem ser modelados. O FrameWeb apresenta uma linguagem de modelagem que estende o meta-modelo UML, representando os componentes relacionados aos \textit{frameworks} e os componentes mais utilizados no desenvolvimento \textit{Web}. Um perfil UML é utilizado para a construção de quatro tipos de diagramas: 
 
 \begin{itemize}  
 
-	\item \textbf{Modelo de Domínio:} partindo do modelo de classes desenvolvido na fase de análise, os objetos de domínio do problema que serão persistidos no banco de dados são representados por um diagrama de classes da UML. Além disso, os mapeamentos que guiam a persistência dos objetos destas classes são adicionados;
+	\item \textbf{Modelo de Entidades:} partindo do modelo de classes desenvolvido na fase de análise, os objetos de domínio do problema que serão persistidos no banco de dados são representados por um diagrama de classes da UML. Além disso, os mapeamentos que guiam a persistência dos objetos destas classes são adicionados;
 	
 	\item \textbf{Modelo de Persistência:} um diagrama de classes da UML representa a implementação das classes DAO existentes no sistema e que serão persistidas, exibindo todas as implementações das interfaces, assim como os seus respectivos métodos;
 	
-	\item \textbf{Modelo de Navegação:} demonstra as páginas \textit{Web} do sistema, seus atributos e suas iterações, exibindo o funcionamento dos inúmeros componentes que formam a camada de Lógica de Apresentação;
+	\item \textbf{Modelo de Navegação:} demonstra as páginas \textit{Web} do sistema, seus atributos e suas iterações, exibindo o funcionamento dos inúmeros componentes que formam a camada de Lógica de Apresentação. Além disso, ele estabelece a maneira como cada categoria de usuário irá navegar de um elemento da \textit{WebApp} para outro. A mecânica de navegação é definida como parte do projeto, sendo necessário observar a definição e se concentrar nos requisitos gerais de navegação~\cite{pressman:es11}.	
 	
-	\item \textbf{Modelo de Aplicação:} exibe através de um diagrama de classes da UML, as classes de serviço, que implementam os casos de uso e as suas dependências.
+	\item \textbf{Modelo de Aplicação:} exibe através de um diagrama de classes da UML, as classes de serviço, que implementam os casos de uso e as suas dependências. Esse diagrama é utilizado para auxiliar os desenvolvedores na implementação das classes do pacote Aplicação e na configuração das dependências entre os pacotes Controle, Aplicação e Persistência. Assim, é possível definir quais DAOs são necessários para que as classes de serviço alcancem seus objetivos e quais classes de ação dependem de quais classes de serviço~\cite{souza:masterthesis07}.
+
+De acordo com~\citeonline{souza:masterthesis07}, se existirem classes de ação que dependem de uma classe de serviço exibida, elas também devem estar presentes no modelo, realizando a representação através da indicação da dependência por meio de uma associação direcionada à interface da classe de serviço e de espaços de nomes que pertencem a outro pacote. Portanto, quando a classe de serviço depende de algum DAO, a interface deste deve aparecer no diagrama e estar associada à classe de serviço em questão.	
 
 \end{itemize}
 
-A definição da linguagem de modelagem permite, ainda, a criação de ferramentas de apoio ao método, como um editor gráfico~\cite{campos-souza:webmedia17} e um gerador de código~\cite{almeida-et-al:webmedia17}.
+A definição da linguagem de modelagem permite, ainda, a criação de ferramentas de apoio ao método, como um editor gráfico~\cite{campos-souza:webmedia17} e um gerador de código~\cite{almeida-et-al:webmedia17}. O FrameWeb Editor estabelece um ambiente gráfico para a criação de modelos FrameWeb, apresentando suas funcionalidades e aspectos relevantes de sua implementação.  
 
 
 

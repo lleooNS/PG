@@ -5,22 +5,20 @@
 \chapter{Projeto Arquitetural e Implementação}
 \label{sec-projeto}
 
-As atividades de projeto e implementação de \textit{softwares} são invariavelmente intercaladas. O projeto de \textit{software} é uma atividade criativa aonde são identificados os componentes de \textit{software} e seus relacionamentos de acordo com os requisitos do cliente. A implementação estabelece o processo de concretização do projeto como um programa. Sempre existe um processo de projeto, pois um projeto trata de como resolver um problema. O projeto e a implementação estão intimamente ligados e, ao elaborar um projeto, é necessário levar em consideração os problemas de implementação que serão enfrentados~\cite{sommerville:es11}.
-
 De acordo com o que já foi mencionado anteriormente, o método FrameWeb oferece suporte a quatro categorias de \textit{frameworks}: Controlador Frontal, Injeção de Dependências, Mapeamento Objeto/Relacional e Segurança. Por este motivo, a aplicação do método na fase de projeto vem sendo testada através da implementação do sistema SCAP, utilizando \textit{frameworks} que fazem parte destas categorias.
 
 Como o objetivo principal deste trabalho era verificar os resultados da aplicação e testar a eficácia do método FrameWeb, a ferramenta SCAP não necessitou ser entregue englobando todas as suas funcionalidades. Assim, algumas restrições de integridade não foram implementadas, a ferramenta não possui a funcionalidade de enviar emails, gerar atas de reuniões e nem anexar documentos.
 
-Neste capítulo, através da Seção \ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção \ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção \ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb, a Seção \ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails e a Seção \ref{sec-projeto-diferenciacoes-versoes-anteriores}, exibe uma tabela contendo algumas diferenciações entre as versões anteriores do sistema SCAP.           
+Neste capítulo, através da Seção~\ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção~\ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção~\ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb e a Seção~\ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails.           
 
 \section{Arquitetura do Sistema}
 \label{sec-projeto-arquitetura-sistema}
 
 De uma maneira simplificada, a arquitetura do sistema é a organização ou a estrutura de componentes de programa, a maneira como esses componentes realizam iterações e a estrutura de dados que são utilizadas por estes componentes. De uma forma mais abrangente, entretanto, os componentes podem ser generalizados para representar as suas iterações e os principais elementos de um sistema~\cite{pressman:es11}.
 
-A Figura \ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia dos diretórios e arquivos que são criados através do \textit{framework} Grails.
+A Figura~\ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia dos diretórios e arquivos que são criados através do \textit{framework} Grails.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.7]{figuras/fig-projeto-estrutura-grails} 
 	\caption{Estrutura criada pelo \textit{framework} Grails.}
@@ -39,7 +37,7 @@ Na lista abaixo são apresentados de maneira geral os diretórios criados atrav�
 
 	\item \textbf{``grail-app/controllers'':} local onde ficam localizados todos os controladores criados;
 	
-	\item \textbf{``grails-app/domain'':} local onde se encontram os modelos ou classes de Domínio;
+	\item \textbf{``grails-app/domain'':} local onde se encontram os modelos ou classes de domínio;
 	
 	\item \textbf{``grails-app/i18n'':} local onde são armazenados os pacotes de mensagens relacionados à internacionalização;
 	
@@ -79,61 +77,102 @@ Com a adoção do Gradle pelo \textit{framework} Grails, foi necessário realiza
 
 O GORM (\textit{Grails Object Relational Mapping}) é uma poderosa API (\textit{Application Programming Interface}) que facilita muito a execução de tarefas relacionadas à persistência de objetos. Nas versões iniciais do \textit{framework} Grails, o GORM era basicamente uma fina camada de código Groovy sobre o Hibernate, que fornecia uma interface de programação onde era possível aproveitar as características dinâmicas da linguagem~\cite{weissmann:fgapdw15}.
 
-De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser visto como uma API de persistência Groovy real, onde é possível desenvolver sistemas em Grails que usem qualquer tipo de SGBD (Sistema Gerenciador de Banco de Dados), relacional ou não. Para isto, é necessário que seja escrito uma implementação do GORM para o SGDB que será utilizado. Uma observação interessante é que o GORM também pode ser utilizado com sucesso independentemente do Grails.  
+De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser visto como uma API de persistência Groovy real, onde é possível desenvolver sistemas em Grails que usem qualquer tipo de SGBD (Sistema Gerenciador de Banco de Dados), relacional ou não. Para isto, é necessário que seja escrita uma implementação do GORM para o SGDB que será utilizado. Uma observação interessante é que o GORM também pode ser utilizado com sucesso independentemente do Grails.  
 
 \section{Modelos FrameWeb}
 \label{sec-projeto-modelos-frameweb}
 
-A sintaxe da linguagem de modelagem do método FrameWeb é definida formalmente através de meta-modelos, o que possibilitou a criação da ferramenta CASE (\textit{Computer-Aided Software Engineering}) denominada FrameWeb \textit{Editor}~\cite{campos-souza:webmedia17}. Esta ferramenta estabelece um ambiente gráfico para a criação de modelos FrameWeb, apresentando suas funcionalidades e aspectos relevantes de sua implementação.  
-
-Nas subseções a seguir são descritos e apresentados os modelos referentes à aplicação do método FrameWeb que foi realizada durante a fase de projeto arquitetural do SCAP. A ferramenta FrameWeb \textit{Editor} foi utilizada para realizar a criação dos quatro tipos básicos de modelos FrameWeb, pois ela oferece um ferramental bem conhecido em softwares de modelagem contendo características e propriedades próprias da linguagem.  
+Nas subseções a seguir são descritos e apresentados os modelos referentes à aplicação do método FrameWeb que foi realizada durante a fase de projeto arquitetural do SCAP. A ferramenta FrameWeb Editor~\cite{campos-souza:webmedia17} foi utilizada para realizar a criação dos quatro tipos básicos de modelos FrameWeb, pois ela oferece um ferramental bem conhecido em softwares de modelagem contendo características e propriedades próprias da linguagem.  
 
 \subsection{Modelo de Navegação}
 \label{sec-projeto-modelo-navegacao}
 
-O Modelo de Navegação estabelece a maneira como cada categoria de usuário irá navegar de um elemento da \textit{WebApp} para outro. A mecânica de navegação é definida como parte do projeto, sendo necessário observar a definição e se concentrar nos requisitos gerais de navegação~\cite{pressman:es11}. 
+Os Modelos de Navegação foram gerados de acordo com os casos de uso do sistema. A Figura~\ref{fig-projeto-cadastrarUsuarioProfessor} e a Figura~\ref{fig-projeto-cadastrarUsuarioSecretario} representam o caso de uso ``Cadastrar Usuário'', que é realizado por um secretário. O caso de uso ``Cadastrar Chefe do Departamento'' também é utilizado por um secretário e foi representado através da Figura~\ref{fig-projeto-cadastrarChefeDepartamento}. 
 
-Representando os diferentes componentes que formam a camada de Lógica de Apresentação, o Modelo de Navegação é um diagrama de classe da UML que retrata formulários HTML, páginas \textit{Web} e classes de ação do \textit{framework Front Controller}~\cite{souza:masterthesis07}.
-
-Um Modelo de Navegação foi gerado para cada caso de uso neste projeto, no entanto, alguns casos de uso não foram apresentados, pois possuem o mesmo modelo de navegação apresentado na Figura \ref{fig-projeto-navegacao1}. Os casos de uso que foram omitidos foram: Cadastrar Chefe do Departamento, Solicitar Afastamento, Manifestar-se Contra Afastamento, Encaminhar Afastamento e Registrar Parecer Relator.
-
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/fig-projeto-navegacao1} 
-	\caption{Modelo de Navegação do Caso de Uso: Cadastrar Usuário (Professor).}
-	\label{fig-projeto-navegacao1}
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-cadastrarUsuarioProfessor.png}
+	\caption{Modelo de Navegação do Caso de Uso: Cadastrar Usuário - Professor.}
+	\label{fig-projeto-cadastrarUsuarioProfessor}
 \end{figure}
 
-De mesmo modo, outros casos de uso também não foram apresentados por seguirem o mesmo modelo de navegação representado pela Figura \ref{fig-projeto-navegacao2}. Assim, ficaram omitidos os casos de uso: Registrar Parecer CT, Registrar Parecer PRPPG e Cancelar Afastamento.
-
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.5]{figuras/fig-projeto-navegacao2} 
-	\caption{Modelo de Navegação do Caso de Uso: Arquivar Afastamento.}
-	\label{fig-projeto-navegacao2}
-\end{figure} 
-
-\subsection{Modelo de Domínio}
-\label{sec-projeto-modelo-dominio}
-
-O Modelo de Domínio sugere que o modelo de classes do domínio agregue tanto comportamento quanto dados. Por meio da Análise de Requisitos, as classes de domínio que foram identificadas ficam responsáveis por cuidar da lógica de aplicação e da lógica de domínio. De acordo com~\citeonline{fowler:peaa02}, o padrão Modelo de Domínio captura a essência da orientação a objetos.
-
-Englobando as funcionalidades que dão suporte aos processos de negócio, concentrando as regras de negócio, conceitos do domínio, cálculos e processamentos, o Modelo de Domínio é representado por um diagrama de classes da UML, que apresenta o mapeamento dos objetos de domínio do problema para a persistência em banco de dados relacional. Na atividade de implementação, este modelo é utilizado para realizar a efetuação das classes da camada de Domínio~\cite{souza:masterthesis07}.
-
-Utilizando o diagrama de classes que já foi apresentado através da Figura \ref{fig-requisitos-diagrama-classes}, o Modelo de Domínio recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura \ref{fig-projeto-dominio}, que representa o Modelo de Domínio do SCAP.
-
-No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura \ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados.   
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.45]{figuras/fig-projeto-dominio} 
-	\caption{Modelo de Domínio do SCAP.}
-	\label{fig-projeto-dominio}
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-cadastrarUsuarioSecretario.png}
+	\caption{Modelo de Navegação do Caso de Uso: Cadastrar Usuário - Secretário.}
+	\label{fig-projeto-cadastrarUsuarioSecretario}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/fig-projeto-enum} 
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-cadastrarChefeDepartamento.png}
+	\caption{Modelo de Navegação do Caso de Uso: Cadastrar Chefe do Departamento.}
+	\label{fig-projeto-cadastrarChefeDepartamento}
+\end{figure}
+
+A Figura~\ref{fig-projeto-solicitarAfastamento} representa o caso de uso ``Solicitar Afastamento'', que acontece quando um professor realiza o cadastro de um pedido de afastamento. Caso exista um pedido de afastamento internacional, o chefe do departamento utiliza o caso de uso ``Encaminhar Afastamento'', que pode ser visualizado na Figura~\ref{fig-projeto-encaminharAfastamento}. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-solicitarAfastamento.png}
+	\caption{Modelo de Navegação do Caso de Uso: Solicitar Afastamento.}
+	\label{fig-projeto-solicitarAfastamento}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-encaminharAfastamento.png}
+	\caption{Modelo de Navegação do Caso de Uso: Encaminhar Afastamento.}
+	\label{fig-projeto-encaminharAfastamento}
+\end{figure}
+
+Os casos de uso ``Deferir Parecer'' e ``Manifestar-se Contra Afastamento'' são bem parecidos, pois é necessário realizar o cadastro de um parecer. Portanto, eles foram representados através da Figura~\ref{fig-projeto-defParecer_manifContra}. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-defParecer_manifContra.png}
+	\caption{Modelo de Navegação dos Casos de Uso: Deferir Parecer e Manifestar-se Contra Afastamento.}
+	\label{fig-projeto-defParecer_manifContra}
+\end{figure}
+
+Os casos de uso ``Cancelar Afastamento'', ``Arquivar Afastamento'', ``Registrar Parecer CT'' e ``Registrar Parecer PRPPG'' também são bem parecidos. Um professor cancela um pedido de afastamento realizando a alteração da situação da solicitação. Do mesmo modo, um secretário realiza a mudança da situação da solicitação, quando necessita arquivar um afastamento, registrar um parecer do CT ou registrar um parecer da PRPPG. Assim, esses casos de uso foram apresentados na Figura~\ref{fig-projeto-cancelar_arquivar_CT_PRPPG}.   
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-cancelar_arquivar_CT_PRPPG.png}
+	\caption{Modelo de Navegação dos Casos de Uso: Cancelar Afastamento, Arquivar Afastamento, Registrar Parecer CT e Registrar Parecer PRPPG.}
+	\label{fig-projeto-cancelar_arquivar_CT_PRPPG}
+\end{figure}
+
+Todos os usuários do sistema podem utilizar o caso de uso ``Consultar Afastamento''. Para isso, é possível filtrar a lista de afastamentos através de quatro buscas diferentes. O caso de uso está representado através da Figura~\ref{fig-projeto-consultarAfastamento}.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-consultarAfastamento.png}
+	\caption{Modelo de Navegação do Caso de Uso: Consultar Afastamento.}
+	\label{fig-projeto-consultarAfastamento}
+\end{figure}
+
+% Impede os modelos de navegação de invadir a seção seguinte.
+\FloatBarrier
+
+\subsection{Modelo de Entidades}
+\label{sec-projeto-modelo-entidades}
+
+Utilizando o diagrama de classes que já foi apresentado na Figura~\ref{fig-requisitos-diagrama-classes}, o Modelo de Entidades recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura~\ref{fig-projeto-entidades}, que representa o Modelo de Entidades do SCAP.
+
+No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura~\ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados.   
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.45]{figuras/fig-projeto-entidades} 
+	\caption{Modelo de Entidades do SCAP.}
+	\label{fig-projeto-entidades}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.3]{figuras/fig-projeto-enum} 
 	\caption{Tipos Enumerados do SCAP.}
 	\label{fig-projeto-enum}
 \end{figure}
@@ -141,33 +180,36 @@ No modelo é possível observar o tipo referente a cada atributo, se ele pode se
 \subsection{Modelo de Aplicação}
 \label{sec-projeto-modelo-aplicacao}
 
-Representando as classes de serviço que ficam responsáveis pela implementação dos casos de uso e as suas dependências, o Modelo de Aplicação é definido através de um diagrama de classes da UML. Esse diagrama é utilizado para auxiliar os desenvolvedores na implementação das classes do pacote Aplicação e na configuração das dependências entre os pacotes Controle, Aplicação e Persistência. Assim, é possível definir quais DAOs são necessários para que as classes de serviço alcancem seus objetivos e quais classes de ação dependem de quais classes de serviço~\cite{souza:masterthesis07}.
+Neste projeto foi gerado um modelo de aplicação que representa quais classes de ação que dependem de quais classes de serviço e quais \textit{Data Access Object} (DAO) foram utilizados. Portanto, este modelo pode ser visualizado através da Figura~\ref{fig-projeto-aplicacao1} e da Figura~\ref{fig-projeto-aplicacao2}. 
 
-De acordo com~\citeonline{souza:masterthesis07}, se existirem classes de ação que dependem de uma classe de serviço exibida, elas também devem estar presentes no modelo, realizando a representação através da indicação da dependência por meio de uma associação direcionada à interface da classe de serviço e de espaços de nomes que pertencem a outro pacote. Portanto, quando a classe de serviço depende de algum DAO, a interface deste deve aparecer no diagrama e estar associada à classe de serviço em questão.
-
-Neste projeto foram gerados um modelo de aplicação para cada Data Access Object (DAO) existente. Portanto, por seguirem o mesmo padrão, foram representados apenas dois modelos de aplicação que podem ser visualizados na Figura \ref{fig-projeto-aplicacao}.
-
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.6]{figuras/fig-projeto-aplicacao} 
-	\caption{Modelo de Aplicação do SCAP.}
-	\label{fig-projeto-aplicacao}
-\end{figure}    
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-aplicacao1.png}
+	\caption{Modelo de Aplicação - Parte 1.}
+	\label{fig-projeto-aplicacao1}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=1\textwidth]{figuras/fig-projeto-aplicacao2.png}
+	\caption{Modelo de Aplicação - Parte 2.}
+	\label{fig-projeto-aplicacao2}
+\end{figure}
+   
 
 \subsection{Modelo de Persistência}
 \label{sec-projeto-modelo-persistencia}
 
-Seguindo a utilização do padrão de projeto DAO~\cite{alur-et-al:bpds03}, o Modelo de Persistência é um diagrama de classes da UML que representa as classes DAO existentes e que são responsáveis pela persistência das instância das classes de domínio~\cite{souza:masterthesis07}. As classes DAO que fazem parte do pacote Persistência, são construídas com o auxílio deste diagrama que pode ser visualizado por meio da Figura \ref{fig-projeto-persistencia}.
-
+As classes DAO que fazem parte do pacote Persistência, são construídas com o auxílio deste diagrama que pode ser visualizado por meio da Figura~\ref{fig-projeto-persistencia}.
 Para cada classe de domínio que precisa de lógica de acesso a dados, foi criada uma interface e uma classe concreta DAO que realiza a implementação dessa interface. A partir da criação da interface DAO base, todas as outras interfaces herdaram as definições e as implementações concretas que foram definidas.
 
-De acordo com o método FrameWeb~\cite{souza:masterthesis07,souza-celebratingfalbo20}, é aconselhável seguir um padrão de nomes para as classes DAO, sendo que as intefaces devem seguir o padrão \textbf{<nome da classe de domínio>DAO} e as classes concretas devem seguir o padrão \textbf{<nome da interface><tecnologia de persistência>}. O \textit{framework} Grails que foi utilizado neste projeto utiliza o \textbf{GORM} como tecnologia de persistência. A tecnologia \textbf{GORM} já foi descrita anteriormente na subseção \ref{sec-projeto-gorm}.
+De acordo com o método FrameWeb~\cite{souza:masterthesis07,souza-celebratingfalbo20}, é aconselhável seguir um padrão de nomes para as classes DAO, sendo que as intefaces devem seguir o padrão \textbf{<nome da classe de domínio>DAO} e as classes concretas devem seguir o padrão \textbf{<nome da interface><tecnologia de persistência>}. O \textit{framework} Grails que foi utilizado neste projeto utiliza o \textbf{GORM} como tecnologia de persistência. A tecnologia \textbf{GORM} já foi descrita anteriormente na subseção~\ref{sec-projeto-gorm}.
 
 Para evitar a poluição visual no Modelo de Persistência, não existe uma representação explícita da relação de herança entre o DAO base e os DAOs específicos. Através da definição de padrões, o foco é estabelecer regras para que a modelagem se torne mais simples e mais rápida.    
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.4]{figuras/fig-projeto-persistencia} 
+	\includegraphics[scale=0.45]{figuras/fig-projeto-persistencia} 
 	\caption{Modelo de Persistência do SCAP.}
 	\label{fig-projeto-persistencia}
 \end{figure}
@@ -175,152 +217,113 @@ Para evitar a poluição visual no Modelo de Persistência, não existe uma repr
 \section{Exibição do Sistema}
 \label{sec-projeto-exibicao-sistema}
 
-O sistema possui um controle segurança através da autenticação de usuários, não sendo possível acessar o conteúdo das páginas modificando a URL (\textit{Uniform Resource Locator}) do navegador utilizado. Para ter acesso ao sistema, o usuário deve fornecer o login e a senha que são cadastrados pelos administradores do sistema. Na Figura \ref{fig-projeto-login} é possível visualizar a tela de login.   
+O sistema possui um controle de segurança através da autenticação de usuários, não sendo possível acessar o conteúdo das páginas modificando a URL (\textit{Uniform Resource Locator}) do navegador utilizado. Para ter acesso ao sistema, o usuário deve fornecer o login e a senha que são cadastrados pelos administradores do sistema. Na Figura~\ref{fig-projeto-login} é possível visualizar a tela de login.   
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-login} 
 	\caption{Tela de Login do SCAP.}
 	\label{fig-projeto-login}
 \end{figure}
 
-Por meio de regras de permissão, cada usuário visualiza a tela inicial de uma maneira modificada. Os secretários possuem a regra de permissão de administrador, pois são responsáveis pelo controle da maioria das funcionalidades. Já os professores possuem a regra de permissão de usuário, podendo visualizar as funcionalidades correspondentes ao seu cargo. O professor que se tornar chefe ou subchefe do departamento, pode visualizar todas as funcionalidades referentes aos professores e ainda pode cadastrar relatores para afastamentos internacionais. A Figura \ref{fig-projeto-usuario-secretario} demonstra um usuário secretário que possui a regra de permissão de administrador. Na parte inferior da página do sistema, ficam localizados os botões chamados de controladores. Através deles é possível realizar as ações disponíveis por cada funcionalidade, como a realização de cadastramentos e as suas devidas associações. 
+Por meio de regras de permissão, cada usuário visualiza a tela inicial de uma maneira modificada. Os secretários possuem a regra de permissão de administrador, pois são responsáveis pelo controle da maioria das funcionalidades. Já os professores possuem a regra de permissão de usuário, podendo visualizar as funcionalidades correspondentes ao seu cargo. O professor que se tornar chefe ou subchefe do departamento, pode visualizar todas as funcionalidades referentes aos professores e ainda pode cadastrar relatores para afastamentos internacionais. A Figura~\ref{fig-projeto-usuario-secretario} demonstra um usuário secretário que possui a regra de permissão de administrador. Na parte inferior da página do sistema, ficam localizados os botões chamados de controladores. Através deles é possível realizar as ações disponíveis por cada funcionalidade, como a realização de cadastramentos e as suas devidas associações. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-usuario-secretario} 
 	\caption{Tela Inicial do Usuário Secretário do SCAP.}
 	\label{fig-projeto-usuario-secretario}
 \end{figure}
 
-Ao clicar no botão ``Professor Controller'', o usuário secretário é redirecionado para a página de cadastramento de professores, pois cabe a ele cadastrar todos os professores e os parentescos entre eles. Para cadastrar os parentescos, o botão ``Parentesco Controller'' deve ser acionado, sendo necessário informar se o parentesco é sanguíneo ou matrimonial. As Figuras \ref{fig-projeto-cadastrar-professor} e \ref{fig-projeto-cadastrar-parentesco} demonstram essas funcionalidades.
+Ao clicar no botão ``Professor Controller'', o usuário secretário é redirecionado para a página de cadastramento de professores, pois cabe a ele cadastrar todos os professores e os parentescos entre eles. Para cadastrar os parentescos, o botão ``Parentesco Controller'' deve ser acionado, sendo necessário informar se o parentesco é sanguíneo ou matrimonial. As Figuras~\ref{fig-projeto-cadastrar-professor} e~\ref{fig-projeto-cadastrar-parentesco} demonstram essas funcionalidades.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-professor} 
 	\caption{Tela Cadastrar Professor do SCAP.}
 	\label{fig-projeto-cadastrar-professor}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-parentesco} 
 	\caption{Tela Cadastrar Parentesco do SCAP.}
 	\label{fig-projeto-cadastrar-parentesco}
 \end{figure}
 
-O usuário secretário também tem a responsabilidade de realizar o cadastramento do mandato referente ao chefe ou subchefe do departamento. Para aplicar esta ação, é necessário utilizar o botão ``Mandato Controller'', onde o secretário será redirecionado para a página de cadastro, sendo possível informar o período referente ao mandato e também selecionar o professor na lista de professores cadastrados. Este cadastramento pode ser visualizado através da Figura \ref{fig-projeto-cadastrar-mandato}. 
+O usuário secretário também tem a responsabilidade de realizar o cadastramento do mandato referente ao chefe ou subchefe do departamento. Para aplicar esta ação, é necessário utilizar o botão ``Mandato Controller'', onde o secretário será redirecionado para a página de cadastro, sendo possível informar o período referente ao mandato e também selecionar o professor na lista de professores cadastrados. Este cadastramento pode ser visualizado através da Figura~\ref{fig-projeto-cadastrar-mandato}. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-mandato} 
 	\caption{Tela Cadastrar Mandato do Chefe de Departamento do SCAP.}
 	\label{fig-projeto-cadastrar-mandato}
 \end{figure}
 
-Após o secretário realizar o cadastramento dos professores, o cadastramento dos parentescos e o cadastramento do mandato referente ao chefe ou subchefe do departamento, os professores recebem o acesso ao sistema. Por possuírem a regra de permissão de usuário, os professores visualizam a tela inicial com as funcionalidades reduzidas. A tela inicial do usuário professor pode ser visualizada através da Figura \ref{fig-projeto-usuario-professor}. 
+Após o secretário realizar o cadastramento dos professores, o cadastramento dos parentescos e o cadastramento do mandato referente ao chefe ou subchefe do departamento, os professores recebem o acesso ao sistema. Por possuírem a regra de permissão de usuário, os professores visualizam a tela inicial com as funcionalidades reduzidas. A tela inicial do usuário professor pode ser visualizada através da Figura~\ref{fig-projeto-usuario-professor}. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-usuario-professor} 
 	\caption{Tela Inicial do Usuário Professor do SCAP.}
 	\label{fig-projeto-usuario-professor}
 \end{figure}
 
-A Figura \ref{fig-projeto-cadastrar-afastamento} demonstra a principal funcionalidade do sistema. Ao clicar no botão ``Afastamento Controller'' o professor pode preencher todas as informações necessárias para realizar uma solicitação de afastamento, iniciando todo o processo para que as tramitações sejam aplicadas. Através do botão ``Documento Controller'', é possível cadastrar documentos para que eles sejam associados ao afastamento. Está funcionalidade é demonstrada por meio da Figura \ref{fig-projeto-cadastrar-documento}.   
+A Figura~\ref{fig-projeto-cadastrar-afastamento} demonstra a principal funcionalidade do sistema. Ao clicar no botão ``Afastamento Controller'' o professor pode preencher todas as informações necessárias para realizar uma solicitação de afastamento, iniciando todo o processo para que as tramitações sejam aplicadas. Através do botão ``Documento Controller'', é possível cadastrar documentos para que eles sejam associados ao afastamento. Está funcionalidade é demonstrada por meio da Figura~\ref{fig-projeto-cadastrar-documento}.   
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-afastamento} 
 	\caption{Tela Cadastrar Afastamento do SCAP.}
 	\label{fig-projeto-cadastrar-afastamento}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-documento} 
 	\caption{Tela Cadastrar Documento de um Afastamento do SCAP.}
 	\label{fig-projeto-cadastrar-documento}
 \end{figure}
 
-Se existir uma solicitação de afastamento para um evento internacional, o chefe do departamento pode utilizar o botão ``Relator Controller'' para cadastrar um relator, como demonstra a Figura \ref{fig-projeto-cadastrar-relator}. 
+O cadastro de um parecer é exemplificado pela Figura~\ref{fig-projeto-cadastrar-parecer}. Utilizando o botão ``Parecer Controller'', o professor que foi cadastrado pelo chefe do departamento como sendo relator de uma solicitação de afastamento internacional, pode preencher as informações justificando o motivo da sua decisão. Caso um professor seja contra a alguma solicitação de afastamento, ele também pode cadastrar um parecer. 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-relator} 
-	\caption{Tela Cadastrar Relator de um Afastamento do SCAP.}
-	\label{fig-projeto-cadastrar-relator}
-\end{figure}
-
-O cadastro de um parecer é exemplificado pela Figura \ref{fig-projeto-cadastrar-parecer}. Utilizando o botão ``Parecer Controller'', o professor que foi cadastrado pelo chefe do departamento como sendo relator de uma solicitação de afastamento internacional, pode preencher as informações justificando o motivo da sua decisão. 
-
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-cadastrar-parecer} 
 	\caption{Tela Cadastrar Parecer de um Afastamento do SCAP.}
 	\label{fig-projeto-cadastrar-parecer}
 \end{figure}
 
-Todos os usuários do sistema podem realizar consultas para obterem informações sobre uma solicitação de afastamento. É possível visualizar uma lista com todos os afastamentos cadastrados no sistema e também obter detalhes de um afastamento específico. A Figura \ref{fig-projeto-listar-afastamentos} apresenta a lista contendo todos os afastamentos e a Figura \ref{fig-projeto-ver-afastamento} exibe os detalhes do afastamento selecionado.  
+Todos os usuários do sistema podem realizar consultas para obterem informações sobre uma solicitação de afastamento. Os usuários podem realizar buscas pelo nome do professor, pelo nome do evento, pela situação do afastamento ou pelo período de data de solicitação. É possível visualizar uma lista com todos os afastamentos cadastrados no sistema e também obter detalhes de um afastamento específico. A Figura~\ref{fig-projeto-listar-afastamentos} apresenta a lista contendo todos os afastamentos e a Figura~\ref{fig-projeto-ver-afastamento} exibe os detalhes do afastamento selecionado.  
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-listar-afastamentos} 
 	\caption{Tela Listar Afastamentos do SCAP.}
 	\label{fig-projeto-listar-afastamentos}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-ver-afastamento} 
 	\caption{Tela Visualizar Afastamento do SCAP.}
 	\label{fig-projeto-ver-afastamento}
 \end{figure}
 
-A Figura \ref{fig-projeto-listar-professores} demonstra mais uma funcionalidade disponível para o usuário secretário. Para melhorar o controle, é possível visualizar uma lista contendo todos os professores cadastrados, assim como os seus respectivos parentescos. Além disso, é possível saber de todas as solicitações de afastamentos realizadas por cada professor e se ele realizou algum parecer.  
+A Figura~\ref{fig-projeto-listar-professores} demonstra mais uma funcionalidade disponível para o usuário secretário. Para melhorar o controle, é possível visualizar uma lista contendo todos os professores cadastrados, assim como os seus respectivos parentescos. Além disso, é possível saber de todas as solicitações de afastamentos realizadas por cada professor e realizar uma busca por email.  
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-listar-professores} 
 	\caption{Tela Listar Professores do SCAP.}
 	\label{fig-projeto-listar-professores}
 \end{figure}
 
-Após as tramitações de um afastamento serem realizada, o usuário secretário deve efetuar uma atualização no afastamento cadastrado, fazendo uma modificação no status do mesmo. Para isso, ele deve editar o afastamento, mudando o campo ``Situacao Solic'' para ``Arquivado''. Por fim, a Figura \ref{fig-projeto-editar-afastamento} exemplifica esta ação.
+Após as tramitações de um afastamento serem realizada, o usuário secretário deve efetuar uma atualização no afastamento cadastrado, fazendo uma modificação no status do mesmo. Para isso, ele deve editar o afastamento, mudando o campo ``Situacao Solic'' para ``Arquivado''. Por fim, a Figura~\ref{fig-projeto-editar-afastamento} exemplifica esta ação.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.33]{figuras/fig-projeto-editar-afastamento} 
 	\caption{Tela Editar Afastamento do SCAP.}
 	\label{fig-projeto-editar-afastamento}
 \end{figure}
-
-\section{Diferenciações entre as Versões Anteriores do Sistema SCAP}
-\label{sec-projeto-diferenciacoes-versoes-anteriores}
-
-Realizando uma observação na tabela \ref{tabela-diferenciacoes-versoes-anteriores-scap}, é possível visualizar algumas diferenças entre as versões anteriores do sistema SCAP. O foco da tabela ficou em torno das linguagens utilizadas durante as implementações e o mapeamento objeto/relacional utilizado para realizar a persistência dos dados.
-
-\begin{table}[h]
-	\centering	
-	\vspace{0.5cm}
-	\footnotesize
-	\caption{Diferenciações entre as Versões Anteriores do SCAP.}	
-	\label{tabela-diferenciacoes-versoes-anteriores-scap}
-	\begin{tabular}{|p{2.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2.5cm}|}  \hline 
- 		
- 		\rowcolor[rgb]{0.8,0.8,0.8} & \textbf{SCAP}~\cite{duarte-pg14} & \textbf{SCAP}~\cite{prado-pg15} & \textbf{SCAP}~\cite{guterres-pg19} & \textbf{SCAP Atual} \\\hline 
-		
-		\textbf{Linguagem Utilizada} & Java & Java & Scala & Groovy \\\hline
-		
-		\textbf{Mapeamento Objeto/Relacional} & Hibernate + SQL & Hibernate + JPA & Slick & GORM \\\hline
-		
-	\end{tabular}
-\end{table}
-
-Em sua versão,~\citeonline{duarte-pg14} implementou o sistema SCAP utilizando a linguagem Java. Para a persistência dos dados, foi utilizado o Hibernate, que é um \textit{framework} de mapeamento objeto/relacional escrito na linguagem Java. O uso do padrão JPA (\textit{Java Persistence API}) era proposto pela especificação Java EE7, mas devido a uma série de motivos, foi utilizado o Hibernate  junto com o SQL (\textit{Standard Query Language}) durante a implementação.
-
-Com o objetivo de reformular a versão do SCAP implementada por~\citeonline{duarte-pg14},~\citeonline{prado-pg15} também implementou o sistema utilizando a linguagem Java. Como diferencial, nesta versão foi utilizado o Hibernate e o padrão JPA com a linguagem JPQL (\textit{Java Persistence Query Language}), onde as consultas no banco são escritas de forma mais próximas do padrão orientado ao objeto.
-
-Após alguns anos,~\citeonline{guterres-pg19} implementou uma versão do SCAP utilizando a linguagem Scala. Para realizar o mapeamento entre as tabelas no banco de dados e os objetos, foi utilizado a ferramenta Slick. Esta ferramenta é uma moderna biblioteca de consulta e acesso a banco de dados para a linguagem Scala, que permite realizar a escrita de consultas ao banco em Scala ao invés de SQL.
-
-Por fim, como já foi mencionado anteriormente, para a versão do SCAP descrita neste trabalho foi utilizada a linguagem Groovy (descrita na subseção \ref{sec-ref-linguagem-groovy} e na seção \ref{sec-projeto-tecnologias-presentes}) na implementação e para a persistência dos dados foi utilizado o GORM (descrito na subseção \ref{sec-projeto-gorm}).       

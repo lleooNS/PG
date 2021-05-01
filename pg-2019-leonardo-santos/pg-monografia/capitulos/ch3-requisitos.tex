@@ -5,26 +5,12 @@
 \chapter{Especificação de Requisitos e Análise do SCAP}
 \label{sec-requisitos}
 
-Considerados um fator determinante para o fracasso ou sucesso de um projeto de \textit{software}, os requisitos desempenham um papel central no processo de \textit{software}. De modo geral, é possível dizer que os requisitos de um sistema incluem restrições sob as quais ele deve operar, restrições que devem ser satisfeitas no seu processo de desenvolvimento, especificações dos serviços que o sistema deve prover e propriedades gerais do sistema~\cite{falbo:er17}.
-
-Os requisitos podem ser definidos como as descrições das restrições operacionais e dos serviços que devem ser providos pelo sistema~\cite{sommerville:es07}. Com relação ao tipo de informação documentada por um requisito, uma classificação é amplamente aceita e de acordo com~\citeonline{sommerville:es07}, os \textbf{requisitos funcionais} são declarações de serviços que o sistema deve prover, descrevendo o que o sistema deve fazer. Já os \textbf{requisitos não funcionais}, descrevem restrições sobre os serviços ou funções oferecidas pelo sistema. Neste contexto, ainda existem as regras de negócio, que definem requerimentos e restrições do negócio, sendo particulares para cada cliente.
-
-Uma tarefa bem útil é representar os requisitos em níveis diferentes de descrição, pois os desenvolvedores, os clientes que contratam o desenvolvimento do sistema e os usuários finais são muito interessados em requisitos, mas possuem expectativas distintas. Assim,~\citeonline{sommerville:es07} realiza a descrição de dois níveis de requisitos:
-
-\begin{itemize}
-
-	\item \textbf{Requisitos de Usuário ou de Cliente:} devem ser de fácil entendimento para clientes e usuários do sistema que não possuem conhecimento técnico. São diagramas intuitivos das restrições e dos serviços esperados do sistema, todos através da utilização de linguagem natural.
-	
-	\item \textbf{Requisitos de Sistema:} especificam em detalhes as restrições, serviços e funções do sistema, produzindo uma versão melhorada dos requisitos de clientes que os desenvolvedores utilizam para implementar, projetar e testar o sistema. 
-
-\end{itemize}
-
-O capítulo apresenta uma descrição de escopo referente ao SCAP (Sistema de Controle de Afastamento de Professores), assim como o modelo de casos de uso e o diagrama de classes que foi levantado anteriormente por~\citeonline{duarte-pg14} e posteriormente analisado por~\citeonline{prado-pg15}. 
+Este capítulo apresenta uma descrição de escopo referente ao SCAP (Sistema de Controle de Afastamento de Professores), assim como o modelo de casos de uso e o diagrama de classes que foi levantado anteriormente por~\citeonline{duarte-pg14} e posteriormente analisado por~\citeonline{prado-pg15}. 
 
 \section{Descrição do Escopo}
 \label{sec-requisitos-descricao-escopo}
 
-O SCAP surgiu com o objetivo de auxiliar o Departamento de Informática (DI) da UFES no controle e no registro de solicitações de afastamento do seus professores, para que eles possam participar de eventos que acontecem no Brasil e no exterior. Essas solicitações de afastamento necessitam passar por uma série de avaliações para que sejam aprovadas. Elas são avaliadas pelos professores do DI e dependendo do caso, também devem ser avaliadas pela diretoria do Centro Tecnológico (CT) em conjunto com a Pró-Reitoria de Pesquisa e Pós-Graduação (PRPPG). Somente após receber a aprovação de todas as instâncias, o afastamento é publicado no Diário Oficial da União e o professor recebe a autorização para participar do evento.     
+O SCAP surgiu com o objetivo de auxiliar o Departamento de Informática (DI) da UFES no controle e no registro de solicitações de afastamento do seus professores, para que eles possam participar de eventos que acontecem no Brasil e no exterior. Essas solicitações de afastamento necessitam passar por uma série de avaliações para que sejam aprovadas. Elas são avaliadas pelos professores do DI e dependendo do caso, também devem ser avaliadas pelo Centro Tecnológico (CT) e pela Pró-Reitoria de Pesquisa e Pós-Graduação (PRPPG). Nestes casos, somente após receber a aprovação de todas as instâncias, o afastamento é publicado no Diário Oficial da União e o professor recebe a autorização para participar do evento.     
 
 A Câmara Departamental (composta pelos representantes discentes e pelos funcionários do departamento) fica responsável por avaliar e aprovar as solicitações de afastamento para eventos no Brasil. O chefe do departamento (cargo ocupado por um professor do DI através de um mandato temporário) recebe a solicitação de afastamento pelo email e após dez dias, se nenhum membro da Câmara Departamental for contra ao pedido, o afastamento é aprovado. Assim, para eventos nacionais, o processo permanece dentro do DI.
 
@@ -35,13 +21,13 @@ Com o intuito de automatizar as tramitações das solicitações de afastamento,
 \section{Modelo de Casos de Uso}
 \label{sec-requisitos-modelo-casos-uso}
 
-As funcionalidades que um sistema deve prover devem ser capturadas e descritas pelos modelos de casos de uso. Na maioria das vezes, um sistema atende a vários atores e por este motivo, analisar a funcionalidade que ele provem como uma única unidade, pode ser uma tarefa complicada. O conceito de caso de uso tem a utilidade de dividir essa funcionalidade em partes mais agradáveis e menores~\cite{olive:cmis07}. Assim, logo após o levantamento de requisitos e da definição do escopo, os atores identificados no sistema SCAP foram apresentados através da Tabela \ref{tabela-atores-scap}.  
+Após o levantamento de requisitos e da definição do escopo, os atores identificados no sistema SCAP são apresentados na Tabela~\ref{tabela-atores-scap}.  
 
 \begin{table}[h]
 	\centering	
 	\vspace{0.5cm}
 	\footnotesize
-	\caption{Atores do SCAP~\cite{duarte-pg14}}	
+	\caption{Atores do SCAP~\cite{duarte-pg14}.}	
 	\label{tabela-atores-scap}
 	\begin{tabular}{|p{5.0cm}|p{9.0cm}|}  \hline 
  		
@@ -58,11 +44,11 @@ As funcionalidades que um sistema deve prover devem ser capturadas e descritas p
 
 A parte administrativa do sistema fica por conta dos \textbf{secretários}. Eles possuem a responsabilidade de realizar o cadastro dos mandatos dos chefes do departamento, realizar o cadastro dos professores e dos seus respectivos parentescos. Quando surgem pareceres de fora do DI e quando os pedidos de afastamento são finalizados, os \textbf{secretários} também ficam responsáveis pelo controle dessas tarefas.
 
-O SCAP fornece algumas funcionalidades para os \textbf{professores}. Eles podem realizar o cadastro das solicitações de afastamento e realizar uma manifestação contra o afastamento de outro professor, caso ainda esteja dentro do prazo. Além disso, o \textbf{professor} fica responsável por decidir se o DI aprova ou reprova um afastamento no exterior, caso ele seja adicionado como relator do mesmo. 
+O SCAP fornece algumas funcionalidades para os \textbf{professores}. Eles podem realizar o cadastro das solicitações de afastamento e realizar uma manifestação contra o afastamento de outro professor, caso ainda esteja dentro do prazo. Além disso, o \textbf{professor} fica responsável por recomendar a aprovação ou não de um afastamento no exterior, caso ele seja adicionado como relator do mesmo. 
 
 Se um \textbf{professor} se tornar \textbf{chefe do departamento} através de um mandato, ele deve realizar o encaminhamento de solicitações aos relatores que farão o deferimento de pareceres com relação aos afastamentos internacionais.
 
-O diagrama de casos de uso do SCAP pode ser visualizado através da Figura \ref{fig-requisitos-casos-uso}. Uma pequena descrição dos casos de uso será apresentada nos próximos parágrafos e uma versão mais completa dessa descrição pode ser encontrada em~\cite{duarte-pg14,prado-pg15}.
+O diagrama de casos de uso do SCAP pode ser visualizado através da Figura~\ref{fig-requisitos-casos-uso}. Uma pequena descrição dos casos de uso será apresentada nos próximos parágrafos e uma versão mais completa dessa descrição pode ser encontrada em~\cite{duarte-pg14,prado-pg15}.
      
 \begin{figure}[h]
 	\centering
@@ -77,7 +63,7 @@ Após escolher um relator para um pedido de afastamento internacional, o Chefe d
 
 Um professor, um chefe de departamento ou um secretário podem utilizar o caso de uso \textbf{Consultar Afastamento} assim que necessitarem obter informações sobre uma solicitação de afastamento. Se um professor for contra a um pedido de afastamento, o caso de uso \textbf{Manifestar-se Contra Afastamento} pode ser utilizado e após o motivo ser cadastrado, uma reunião é agendada para decidir a aprovação ou reprovação da solicitação.
 
-Um secretário realiza o cadastramento de novos professores ou secretários através do caso de uso \textbf{Cadastrar Usuário}, onde é informado todos os dados necessários. Um secretário também utiliza o caso de uso \textbf{Cadastrar Chefe do Departamento} para especificar o período do mandato do novo chefe do departamento.
+Um secretário realiza o cadastramento de novos professores ou secretários através do caso de uso \textbf{Cadastrar Usuário}, onde são informados todos os dados necessários. Um secretário também utiliza o caso de uso \textbf{Cadastrar Chefe do Departamento} para especificar o período do mandato do novo chefe do departamento.
   
 Quando existe uma solicitação de afastamento internacional, um secretário realiza o cadastro do parecer do Centro Tecnológico e da Pró-Reitoria de Pesquisa e Pós-Graduação por meio dos casos de uso \textbf{Registrar Parecer CT} e \textbf{Registrar Parecer PRPPG}.
 
@@ -86,14 +72,7 @@ O caso de uso \textbf{Arquivar Afastamento} é executado após a tramitação de
 \section{Análise do SCAP}
 \label{sec-requisitos-analise-scap}
 
-Com a responsabilidade de relacionar as necessidades e as exigências do cliente, a análise de requisitos estabelece atividades para que seus objetivos sejam atingidos através de soluções que deverão ser implementadas e entregues em um produto final de \textit{software}. Desta maneira, a análise de requisitos engloba a compreensão dos estudos das necessidades e das solicitações do usuário para que as soluções sejam desenvolvidas. Resumidamente, a análise de requisitos envolve o entendimento do problema, sua avaliação, uma estratégia para a solução, sua modelagem, a especificação dos requisitos e a devida validação~\cite{amui:pds15}.
-
-Diferentes objetos desempenham um mesmo papel no mundo real, compartilhando um mesmo comportamento e uma mesma estrutura. Não existe a necessidade de realizar a modelagem de cada objeto individualmente, pois é mais vantajoso reunir em apenas um lugar, um modelo que descreve o comportamento e a estrutura desses objetos. Esse modelo passa a se tornar uma classe. Uma classe descreve um conjunto de objetos com os mesmos atributos, associações, operações e a mesma semântica. Portanto, a modelagem orientada a objetos é constituída pela definição de classes~\cite{falbo:er17}.    
-
-\subsection{Modelo de Classes}
-\label{sec-requisitos-modelo-classes}
-
-O diagrama de classes do SCAP pode ser visualizado através da Figura \ref{fig-requisitos-diagrama-classes}. As instâncias das classes são especificadas de acordo com o comportamento exercido pelos objetos que seguem as especificações das classes. 
+O diagrama de classes do SCAP pode ser visualizado através da Figura~\ref{fig-requisitos-diagrama-classes}. As instâncias das classes são especificadas de acordo com o comportamento exercido pelos objetos que seguem as especificações das classes. 
 
 \begin{figure}[h]
 	\centering
@@ -108,12 +87,7 @@ Os pedidos de afastamento solicitados por professores são representados pela cl
 
 A classe \textbf{Parecer} é utilizada quando um professor efetua a emissão de um parecer com relação a um afastamento. Um professor pode se tornar relator e criar pareceres de vários afastamentos diferentes. 
 
-\subsection{Restrições de Integridade}
-\label{sec-requisitos-restricoes-integridade}
-
-As restrições de integridade são limitações às possíveis soluções no desenvolvimento referente ao produto a ser entregue e não ao projeto em si. Elas não representam os requisitos de forma direta, mas induzem à definição de requisitos específicos. As restrições afetam a construção, o desenho da solução, a validação, os testes e a implantação do \textit{software}, não podendo sofrer alterações. Por este motivo, elas devem ser muito bem validadas~\cite{vazquez-et-al:erson16}.
-
-As primeiras restrições de integridade do sistema foram identificadas por \citeonline{duarte-pg14} e após concluir a implementação de uma nova versão, \citeonline{prado-pg15} sentiu a necessidade de adicionar novas restrições. As restrições de integridade do SCAP que foram atualizadas estão descritas a seguir:
+Restrições de integridade do sistema foram identificadas por \citeonline{duarte-pg14} e, após concluir a implementação de uma nova versão, \citeonline{prado-pg15} sentiu a necessidade de adicionar novas restrições. As restrições de integridade do SCAP que foram atualizadas estão descritas a seguir:
  
 \begin{itemize}
 
