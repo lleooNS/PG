@@ -5,18 +5,18 @@
 \chapter{Projeto Arquitetural e Implementação}
 \label{sec-projeto}
 
-De acordo com o que já foi mencionado anteriormente, o método FrameWeb oferece suporte a quatro categorias de \textit{frameworks}: Controlador Frontal, Injeção de Dependências, Mapeamento Objeto/Relacional e Segurança. Por este motivo, a aplicação do método na fase de projeto vem sendo testada através da implementação do sistema SCAP, utilizando \textit{frameworks} que fazem parte destas categorias.
+De acordo com o que já foi mencionado anteriormente, o método FrameWeb oferece suporte a quatro categorias de \textit{frameworks}: Controlador Frontal, Injeção de Dependências, Mapeamento Objeto/Relacional e Segurança. Por este motivo, a aplicação do método na fase de projeto vem sendo testada por meio da implementação do sistema SCAP, utilizando \textit{frameworks} que fazem parte destas categorias.
 
 Como o objetivo principal deste trabalho era verificar os resultados da aplicação e testar a eficácia do método FrameWeb, a ferramenta SCAP não necessitou ser entregue englobando todas as suas funcionalidades. Assim, algumas restrições de integridade não foram implementadas, a ferramenta não possui a funcionalidade de enviar emails, gerar atas de reuniões e nem anexar documentos.
 
-Neste capítulo, através da Seção~\ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção~\ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto através do uso do \textit{framework} Grails. A Seção~\ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb e a Seção~\ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails.           
+Neste capítulo, por meio da Seção~\ref{sec-projeto-arquitetura-sistema}, é descrito como o \textit{framework} Grails organiza os diretórios do projeto. A Seção~\ref{sec-projeto-tecnologias-presentes} apresenta as tecnologias presentes no projeto mediante o uso do \textit{framework} Grails. A Seção~\ref{sec-projeto-modelos-frameweb} demonstra os modelos gerados por meio da aplicação do método FrameWeb e a Seção~\ref{sec-projeto-exibicao-sistema}, exibe as telas do sistema SCAP que foi implementado por meio do \textit{framework} Grails.           
 
 \section{Arquitetura do Sistema}
 \label{sec-projeto-arquitetura-sistema}
 
 De uma maneira simplificada, a arquitetura do sistema é a organização ou a estrutura de componentes de programa, a maneira como esses componentes realizam iterações e a estrutura de dados que são utilizadas por estes componentes. De uma forma mais abrangente, entretanto, os componentes podem ser generalizados para representar as suas iterações e os principais elementos de um sistema~\cite{pressman:es11}.
 
-A Figura~\ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia dos diretórios e arquivos que são criados através do \textit{framework} Grails.
+A Figura~\ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia dos diretórios e arquivos que são criados durante a utilização do \textit{framework} Grails.
 
 \begin{figure}[!h]
 	\centering
@@ -27,7 +27,7 @@ A Figura~\ref{fig-projeto-estrutura-grails} demonstra a estrutura da hierarquia 
 
 Por meio dos relatos apresentados por~\citeonline{beder:ew12}, a hierarquia de diretórios e arquivos do \textit{framework} Grails segue o paradigma \textbf{\textit{Convention Over Configuration} (CoC)}. O uso do \textbf{CoC} tem como objetivo diminuir a quantidade de decisões tomadas pelos desenvolvedores, adotando como ``padrão'' algo que é utilizado de forma comum, uma convenção. Seguindo as convenções, os desenvolvedores já sabem a priori onde se encontram todos os elementos que compõem a aplicação em desenvolvimento.
 
-Na lista abaixo são apresentados de maneira geral os diretórios criados através do \textit{framework} Grails. As abas dos diretórios estão representadas em negrito:
+Na lista abaixo são apresentados de maneira geral os diretórios criados por meio do \textit{framework} Grails. As abas dos diretórios estão representadas em negrito:
 
 \begin{itemize}
 
@@ -56,12 +56,12 @@ Utilizando o \textit{framework} Grails, esta versão do SCAP foi implementada na
 
 Descrevendo mais sobre a linguagem Groovy, ela também pode ser utilizada como uma linguagem de \textit{script}, não sendo necessário realizar a geração de arquivos executáveis e nem a sua compilação. O Groovy simplifica a implementação, adicionando dinamicamente às suas classes os métodos de acesso (\textit{gets} e \textit{sets}), economizando esforço e tempo. Com o objetivo de simplificar a sintaxe da linguagem Java, o Groovy representa comportamentos dinâmicos, como escritas e leituras, consulta a banco de dados e geração de objetos em tempo de execução ao invés de compilação~\cite{konig-et-al:gia07}.
 
-Nas subseções abaixo estão descritas mais algumas tecnologias que foram utilizadas no projeto através do \textit{framework} Grails.
+Nas subseções abaixo estão descritas mais algumas tecnologias que foram utilizadas no projeto por meio do \textit{framework} Grails.
 
 \subsection{Scaffolding}
 \label{sec-projeto-scaffolding}
 
-A abordagem Scaffolding é um termo que foi adotado pelo \textit{framework} Grails para realizar a geração dos controladores e das visões relacionadas às classes de domínio. Através dele, é possível gerar todo o código responsável por fornecer um CRUD essencial para o sistema, permitindo incluir, ler, atualizar e deletar os registros armazenados no banco de dados. Ainda é possível criar códigos de autenticação/autorização, testes unitários, entre outras operações~\cite{beder:ew12}.
+A abordagem Scaffolding é um termo que foi adotado pelo \textit{framework} Grails para realizar a geração dos controladores e das visões relacionadas às classes de domínio. Com a sua utilização, é possível gerar todo o código responsável por fornecer um CRUD essencial para o sistema, permitindo incluir, ler, atualizar e deletar os registros armazenados no banco de dados. Ainda é possível criar códigos de autenticação/autorização, testes unitários, entre outras operações~\cite{beder:ew12}.
 
 De acordo com~\citeonline{beder:ew12}, o Scaffolding pode ser estático ou dinâmico. O Scaffolding estático produz, através da utilização de \textit{templates}, o código relacionado as visões e aos controladores que podem receber personalizações das equipes de desenvolvedores \textit{web}. Já o Scaffolding dinâmico pode servir a vários propósitos, como na criação de interfaces simples, sem o intuito de realizar muitas personalizações nas visões que são geradas em tempo de execução. Para a implementação desta versão do SCAP, foi utilizado o Scaffolding dinâmico.   
 
@@ -75,7 +75,7 @@ Com a adoção do Gradle pelo \textit{framework} Grails, foi necessário realiza
 \subsection{GORM}
 \label{sec-projeto-gorm}
 
-O GORM (\textit{Grails Object Relational Mapping}) é uma poderosa API (\textit{Application Programming Interface}) que facilita muito a execução de tarefas relacionadas à persistência de objetos. Nas versões iniciais do \textit{framework} Grails, o GORM era basicamente uma fina camada de código Groovy sobre o Hibernate, que fornecia uma interface de programação onde era possível aproveitar as características dinâmicas da linguagem~\cite{weissmann:fgapdw15}.
+O GORM (\textit{Grails Object Relational Mapping}) é uma API (\textit{Application Programming Interface}) que facilita muito a execução de tarefas relacionadas à persistência de objetos. Nas versões iniciais do \textit{framework} Grails, o GORM era basicamente uma fina camada de código Groovy sobre o Hibernate, que fornecia uma interface de programação onde era possível aproveitar as características dinâmicas da linguagem~\cite{weissmann:fgapdw15}.
 
 De acordo com~\citeonline{weissmann:fgapdw15}, hoje em dia, o GORM passou a ser visto como uma API de persistência Groovy real, onde é possível desenvolver sistemas em Grails que usem qualquer tipo de SGBD (Sistema Gerenciador de Banco de Dados), relacional ou não. Para isto, é necessário que seja escrita uma implementação do GORM para o SGDB que será utilizado. Uma observação interessante é que o GORM também pode ser utilizado com sucesso independentemente do Grails.  
 
@@ -87,7 +87,7 @@ Nas subseções a seguir são descritos e apresentados os modelos referentes à 
 \subsection{Modelo de Navegação}
 \label{sec-projeto-modelo-navegacao}
 
-Os Modelos de Navegação foram gerados de acordo com os casos de uso do sistema. A Figura~\ref{fig-projeto-cadastrarUsuarioProfessor} e a Figura~\ref{fig-projeto-cadastrarUsuarioSecretario} representam o caso de uso ``Cadastrar Usuário'', que é realizado por um secretário. O caso de uso ``Cadastrar Chefe do Departamento'' também é utilizado por um secretário e foi representado através da Figura~\ref{fig-projeto-cadastrarChefeDepartamento}. 
+Os Modelos de Navegação foram gerados de acordo com os casos de uso do sistema. A Figura~\ref{fig-projeto-cadastrarUsuarioProfessor} e a Figura~\ref{fig-projeto-cadastrarUsuarioSecretario} representam o caso de uso ``Cadastrar Usuário'', que é realizado por um secretário. O caso de uso ``Cadastrar Chefe do Departamento'' também é utilizado por um secretário e foi representado por meio da Figura~\ref{fig-projeto-cadastrarChefeDepartamento}. 
 
 \begin{figure}[!h]
 	\centering
@@ -161,7 +161,7 @@ Todos os usuários do sistema podem utilizar o caso de uso ``Consultar Afastamen
 
 Utilizando o diagrama de classes que já foi apresentado na Figura~\ref{fig-requisitos-diagrama-classes}, o Modelo de Entidades recebeu uma adequação de acordo com a plataforma de implementação utilizada. Foram especificados os tipos de dados de cada atributo, assim como as definições das navegabilidades das associações, mapeamentos de persistência, entre outras coisas. Esta adequação pode ser visualizada através da Figura~\ref{fig-projeto-entidades}, que representa o Modelo de Entidades do SCAP.
 
-No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura~\ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados.   
+No modelo é possível observar o tipo referente a cada atributo, se ele pode ser inicializado com o valor nulo ou não, assim como alguns mapeamentos objeto/relacionais, como por exemplo: o valor ``timestamp'' que indica que um atributo do tipo ``Date'' pode armazenar a data e a hora. Ainda é possível visualizar os tipo de dados enumerados do sistema, que estão representados na Figura~\ref{fig-projeto-enum}. Os tipos enumerados utilizados neste projeto foram os mesmo que estavam presentes na versão do SCAP que foi reformulada por~\citeonline{prado-pg15}, sendo necessário acrescentar o \textbf{TipoCargo}, que pode assumir os valores PROFESSOR ou SECRETARIO. Ambos os valores podem ser utilizados na classe pessoa que é persistida no banco de dados. O atributo \textbf{TipoCargo} foi utilizado apenas como uma alternativa de visualização no banco de dados, não sendo necessário no modelo. Por meio da navegação, as informações com relação às classes Professor e Secretario podem ser encontradas facilmente.   
 
 \begin{figure}[!h]
 	\centering
@@ -180,7 +180,7 @@ No modelo é possível observar o tipo referente a cada atributo, se ele pode se
 \subsection{Modelo de Aplicação}
 \label{sec-projeto-modelo-aplicacao}
 
-Neste projeto foi gerado um modelo de aplicação que representa quais classes de ação que dependem de quais classes de serviço e quais \textit{Data Access Object} (DAO) foram utilizados. Portanto, este modelo pode ser visualizado através da Figura~\ref{fig-projeto-aplicacao1} e da Figura~\ref{fig-projeto-aplicacao2}. 
+Neste projeto foi gerado um modelo de aplicação que representa quais classes de ação que dependem de quais classes de serviço e quais \textit{Data Access Object} (DAO) foram utilizados. Portanto, este modelo pode ser visualizado por meio da Figura~\ref{fig-projeto-aplicacao1} e da Figura~\ref{fig-projeto-aplicacao2}. 
 
 \begin{figure}[!h]
 	\centering
@@ -205,7 +205,7 @@ Para cada classe de domínio que precisa de lógica de acesso a dados, foi criad
 
 De acordo com o método FrameWeb~\cite{souza:masterthesis07,souza-celebratingfalbo20}, é aconselhável seguir um padrão de nomes para as classes DAO, sendo que as intefaces devem seguir o padrão \textbf{<nome da classe de domínio>DAO} e as classes concretas devem seguir o padrão \textbf{<nome da interface><tecnologia de persistência>}. O \textit{framework} Grails que foi utilizado neste projeto utiliza o \textbf{GORM} como tecnologia de persistência. A tecnologia \textbf{GORM} já foi descrita anteriormente na subseção~\ref{sec-projeto-gorm}.
 
-Para evitar a poluição visual no Modelo de Persistência, não existe uma representação explícita da relação de herança entre o DAO base e os DAOs específicos. Através da definição de padrões, o foco é estabelecer regras para que a modelagem se torne mais simples e mais rápida.    
+Para evitar a poluição visual no Modelo de Persistência, não existe uma representação explícita da relação de herança entre o DAO base e os DAOs específicos. Por meio da definição de padrões, o foco é estabelecer regras para que a modelagem se torne mais simples e mais rápida.    
 
 \begin{figure}[!h]
 	\centering
@@ -217,7 +217,7 @@ Para evitar a poluição visual no Modelo de Persistência, não existe uma repr
 \section{Exibição do Sistema}
 \label{sec-projeto-exibicao-sistema}
 
-O sistema possui um controle de segurança através da autenticação de usuários, não sendo possível acessar o conteúdo das páginas modificando a URL (\textit{Uniform Resource Locator}) do navegador utilizado. Para ter acesso ao sistema, o usuário deve fornecer o login e a senha que são cadastrados pelos administradores do sistema. Na Figura~\ref{fig-projeto-login} é possível visualizar a tela de login.   
+O sistema possui um controle de segurança por meio da autenticação de usuários, não sendo possível acessar o conteúdo das páginas modificando a URL (\textit{Uniform Resource Locator}) do navegador utilizado. Para ter acesso ao sistema, o usuário deve fornecer o login e a senha que são cadastrados pelos administradores do sistema. Na Figura~\ref{fig-projeto-login} é possível visualizar a tela de login.   
 
 \begin{figure}[!h]
 	\centering
@@ -235,7 +235,7 @@ Por meio de regras de permissão, cada usuário visualiza a tela inicial de uma 
 	\label{fig-projeto-usuario-secretario}
 \end{figure}
 
-Ao clicar no botão ``Professor Controller'', o usuário secretário é redirecionado para a página de cadastramento de professores, pois cabe a ele cadastrar todos os professores e os parentescos entre eles. Para cadastrar os parentescos, o botão ``Parentesco Controller'' deve ser acionado, sendo necessário informar se o parentesco é sanguíneo ou matrimonial. As Figuras~\ref{fig-projeto-cadastrar-professor} e~\ref{fig-projeto-cadastrar-parentesco} demonstram essas funcionalidades.
+Ao clicar no botão ``Professor Controller'', o usuário secretário é redirecionado para a página de cadastramento de professores, pois cabe a ele cadastrar todos os professores e os parentescos entre eles. Para cadastrar os parentescos, o botão ``Parentesco Controller'' deve ser acionado, sendo necessário informar se o parentesco é sanguíneo ou matrimonial. Com a utilização do \textit{scaffolding}, mencionado na Seção~\ref{sec-projeto-scaffolding}, alguns \textit{links} foram criados. Esses \textit{links} podem ser utilizados para a implementação de novas funcionalidades, execução de ações ou apenas ser removidos. As Figuras~\ref{fig-projeto-cadastrar-professor} e~\ref{fig-projeto-cadastrar-parentesco} demonstram essas funcionalidades.
 
 \begin{figure}[!h]
 	\centering
